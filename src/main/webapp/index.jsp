@@ -1,5 +1,9 @@
+<c:import url="head.jsp"/>
+
 <html>
-<body>
-<h2>Hello World!</h2>
-</body>
+    <body>
+
+        <h2></h2>
+
+    </body>
 </html>

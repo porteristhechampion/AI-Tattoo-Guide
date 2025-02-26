@@ -36,3 +36,9 @@ of code puzzle was fun and plan on working on the week 3 challenge tomorrow. My 
 indie project checkpoint.
 
 Week 5 - 2/23/25
+Time Spent: 6 hours (rough estimate, could've been longer)
+
+I spent most of this week playing catch up and finished my first version of my project plan and spent time working on the
+week 3 challenge. The week 3 challenge was pretty fun to work on and through week 6 I am going back and taking time to better
+plan out my indie project. I wanted to just start coding, but I am having a hard time getting started since my plan isn't
+very thorough.
