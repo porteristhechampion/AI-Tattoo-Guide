@@ -1,47 +1,67 @@
 # User Stories
 
-### Sign up *
+### Register *
 
-As a new user I want to create an account so that I can save given tattoo suggestions.
+As a user I want to be able to register an account.
 
 ### Sign in *
 
-As a registered user I want to be able to log in to my account so that I can add or edit previous suggestions.
+As a user I want to be able to sign in and out of my account and have a username and password.
 
-### Generate suggestions *
+### Reset password *
 
-As a registered user I want to be able to interact with the AI to generate new suggestions which I can save if I please.
+As a user or admin I want to be able to reset my password if need be.
 
-### View suggestions *
+### Edit account
 
-As a registered user I want to be able to go back and view my saved suggestions.
+As a user I want to be able to personalize and edit my account (ex. name, bio).
 
-### Edit suggestions
+### Error handling *
 
-As a registered user I want to be able to edit my saved suggestions if it leads me to a better idea or tweak certain things about a given suggestion.
+As a user I want to be able to know if something goes wrong (ex. incorrect password when signing in, invalid response from AI) so I know how to proceed.
+
+### Get suggestions *
+
+As a user I want to be able to type questions or ideas to generate suggestions from the AI and get text responses.
+
+### Save suggestions *
+
+As a user I want to be able to save a suggestion that the AI gives me, so I can view it later.
+
+### Select style *
+
+As a user I want to be able to select from a list of tattoo styles (ex. tribal, realism) that can be saved along with my suggestion.
 
 ### Delete suggestions *
 
-As a registered user I want to be able to go back and delete a given suggestion if I no longer want it to be saved.
+As a user I want to be able to delete any suggestion I have saved if I no longer want it.
+
+### Edit suggestions
+
+As a user I want to be able to edit my suggestion and add new ideas or tweak ideas already in the suggestion.
+
+### Add styles
+
+As a user I want to be able to input my own style if it is not included in the list I can select from.
+
+### Delete styles
+
+As a user I want to be able to delete a style I added if I no longer want it to be listed.
+
+### View suggestions *
+
+As a user I want to be able to go back and view all of my saved suggestions and the style associated with them.
 
 ### Admin sign in *
 
-As an admin I want to be able to sign in to my admin account to view information not available to the general user.
+As an admin I want to be able to sign in and out of my admin account.
 
 ### Admin view *
 
-As an admin I want to be able to view each user's login information.
+As an admin I want to be able to see all users and their usernames.
 
-### Admin delete *
+### Admin delete user *
 
-As an admin I want to be able to delete a given user's login information if need be.
-
-### Password Reset *
-
-As a registered user or admin user, I want to be able to be able to reset my password if I forget it.
-
-### Edit user profile
-
-As a registered user or admin user, I want to be able to edit my profile.
+As an admin I want to be able to delete a user account along with everything associated with their account (ex. saved suggestions*, added styles).
 
 #### * = MVP
