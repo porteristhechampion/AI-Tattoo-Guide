@@ -1,68 +1,138 @@
-# Project Plan
+# Tattoo AI Suggestion App - Project Plan
 
-### Week 2
-- [X] Create project repository on GitHub
-- [X] Create project structure in intellij and push
-- [X] Add link to list of indie projects in student repo.
-- [X] Complete Problem Statement
-- [X] Weekly reflection/time log
+## Week 2: Project Initialization ✅
+- [x] Create project repository on GitHub
+- [x] Set up project structure in IntelliJ and push to GitHub
+- [x] Add link to the list of indie projects in the student repo
+- [x] Complete **Problem Statement**
+- [x] Document **User Stories** and identify **MVP stories**
+- [x] Research Web Services/APIs to use (OpenAI API)
+- [x] List **technologies and versions** (Java, Hibernate, JSP, AWS, MySQL, etc.)
+- [x] Plan **database schema** (users, suggestions, styles)
+- [x] Weekly reflection/time log
 
-### Week 3
-- [X] Research possible Web Services/APIs to use
-- [X] List technologies, versions and how they will be used
-- [X] Write project plan
-- [X] Document user stories and select MVP stories
-- [X] Confirm MVP stories meet Ent Java indie project objectives
-- [X] Design screens - make sure all MVP user stories are covered
-- [X] Triple-check for Checkpoint 1
-- [X] Update journal/time log/reflection - I should probably just use one :)
+---
 
-For those using this as a model, continue adding weekly tasks by considering:
-1. which user story will you work on in a given week
-2. detail the tasks needed to complete that user story
-3. what we are doing in class each week and what you might add to your project as a result, either in that week or the following week
-4. add in project checkpoints/milestones and tasks to achieve them
-5. I started a few of these below as examples
+## Week 4: Planning & UI Design ✅
+- [x] Write full **Project Plan**
+- [x] Confirm MVP stories align with **Enterprise Java indie project objectives**
+- [x] **Design UI screens**
+- [x] Review **database schema**, ensure **one-to-many relationships** are correct
+- [x] Create **database schema draft** (tables, constraints)
+- [x] **Triple-check** everything for **Checkpoint 1**
+- [x] Weekly reflection
 
-#### User AI input, view user stories
+---
 
-- [X] First cut at database design
-- [ ] Create the dev version of the database
-- [ ] Create a class to connect to api
-- [ ] Create a class to perform CRUD
-- [ ] Create the config files for the DB connection info (dev and test)
-- [ ] Create a test version of the database for unit testing
-- [ ] Create unit tests for the TattooDao
-- [ ] Create a class for the DB connection business
-- [ ] Create JSP for interacting with AI
-- [ ] Create JSP for given saved suggestion results
-- [ ] Create controller to route to tattoo suggestions jsp
-- [ ] Create controller to manage the work of getting suggestions
-- [ ] Update weekly reflection
+## Week 5: Database Setup & API Integration
+- [ ] **Set up database locally** using MySQL/PostgreSQL
+- [ ] Write **DDL (schema creation) scripts**
+- [ ] Implement **DAO classes** for CRUD operations (Users, Suggestions, Styles)
+- [ ] Write **unit tests for DAOs** (JUnit, Mockito)
+- [ ] Connect to OpenAI API:
+    - [ ] Create **API connector class**
+    - [ ] Implement **method for sending user queries and receiving suggestions**
+    - [ ] Handle **error responses & API rate limits**
+- [ ] **Set up logging** using Log4J
+- [ ] Weekly reflection
 
-### Week 7
-#### Checkpoint 2 is Due: Database designed and created, at least one DAO with full CRUD (create, read, update, delete) implemented with Hibernate, DAO is fully unit tested, Log4J is implemented (no System.out.printlns)
+---
 
-- [ ] Double-check all checkpoint 2 items (above) are complete and visible in github.
-- [ ] Set up Authentication in indie project (more tasks coming for this)
-- [ ] Create project DB on AWS.
-- [ ] Update project config files for AWS as needed
-- [ ] Deploy project to AWS
-- [ ] Add deployed link to indie project list in student repo
+## Week 6: Suggestion Storage & Styling Feature
+- [ ] Implement **suggestion saving functionality**
+- [ ] Implement **suggestion editing functionality**
+- [ ] Allow users to **delete their saved suggestions**
+- [ ] Implement **style selection (dropdown of styles)**
+- [ ] Allow users to **add custom styles**
+- [ ] Weekly reflection
 
+---
 
-### Week 9 (Start of the team project)
-#### Checkpoint 3 is Due: Deployed to AWS, at least one JSP that displays data from the database is implemented, authentication implemented, add AWS deployed app link to indie project list in student repo.
-- [ ] Double-check all checkpoint 3 items (above) are complete and visible in github.
+## Week 7: Backend Implementation - Authentication & User Management
+- [ ] Implement **user authentication**
+    - [ ] User **registration, login, logout**
+    - [ ] Role-based access (user, admin)
+- [ ] Create **JSP pages for login, registration, dashboard**
+- [ ] Weekly reflection
 
-### Week 15
-- [ ] Implement Feedback from Week 14 review
-- [ ] Final Presentation
-- [ ] Create video, add video link to readme.md
-- [ ] Finalize all documentation
-- [ ] Code quality check
+---
+
+## Week 7.5: Checkpoint 2 – Database & CRUD Operations
+- [ ] **Double-check all items for Checkpoint 2**
+    - [ ] **Database schema finalized & implemented**
+    - [ ] At least **one DAO with full CRUD implemented using Hibernate**
+    - [ ] DAO is **fully unit tested**
+    - [ ] Log4J **replaces all System.out.println() statements**
+- [ ] **Set up AWS RDS instance for the database**
+- [ ] **Deploy project to AWS**
+- [ ] Update journal
+
+---
+
+## Week 8: Admin Dashboard & Security Enhancements
+- [ ] Implement **admin authentication**
+- [ ] Create **Admin JSP dashboard** to manage users
+- [ ] Implement **admin ability to delete users & their associated data**
+- [ ] Add **role-based access** to restrict admin pages
+- [ ] Improve **error handling and form validation**
+- [ ] Weekly reflection
+
+---
+
+## Week 9: Checkpoint 3 – Deployed App & Authentication Complete
+- [ ] **Verify Checkpoint 3 requirements:**
+    - [ ] **Authentication implemented** (user/admin)
+    - [ ] **At least one JSP page displaying database data**
+    - [ ] **AWS deployment successful & accessible**
+- [ ] Add **AWS link** to indie project list
+- [ ] Weekly reflection
+
+---
+
+## Week 10: User Experience & Feedback Collection
+- [ ] Conduct **user testing** (ask people to test app, note issues)
+- [ ] Improve **UI based on user feedback**
+- [ ] Add **client-side validation** to prevent bad inputs
+- [ ] Optimize **database queries** for performance
+- [ ] Weekly reflection
+
+---
+
+## Week 11-12: Advanced Features & Refinements
+- [ ] Implement **API caching** (to prevent excessive API calls)
+- [ ] Optimize **page loading times**
+- [ ] Weekly reflection
+
+---
+
+## Week 13: Security & Performance Checks
+- [ ] Perform **security audit** (check for vulnerabilities)
+- [ ] Implement **password reset functionality**
+- [ ] Improve **database indexing** for faster queries
+- [ ] Weekly reflection
+
+---
+
+## Week 14: Pre-Final Review & Final Testing
+- [ ] Conduct **full code review**
+- [ ] Write **final unit tests**
+- [ ] Prepare **final documentation**
+- [ ] Weekly reflection
+
+---
+
+## Week 15: Final Presentation & Documentation
+- [ ] Implement **feedback from review**
+- [ ] **Prepare final presentation**
+- [ ] Create **demo video** and add link to `README.md`
+- [ ] Finalize **all documentation**
+- [ ] Perform **code quality check**
 - [ ] Weekly journal entry
 
-### Week 16
-- [ ] Weekly journal entry
-- [ ] Final touches before code complete
+---
+
+## Week 16: Final Touches & Submission
+- [ ] **Final bug fixes**
+- [ ] Ensure **code is production-ready**
+- [ ] **Submit project**
+- [ ] Weekly journal entry  
