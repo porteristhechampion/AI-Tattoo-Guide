@@ -43,7 +43,7 @@
 - [ ] Implement **suggestion editing functionality**
 - [ ] Allow users to **delete their saved suggestions**
 - [ ] Implement **style selection (dropdown of styles)**
-- [ ] Allow users to **add custom styles**
+- [ ] Allow users to ***add custom styles***
 - [ ] Weekly reflection
 
 ---
