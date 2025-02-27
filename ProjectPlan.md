@@ -12,9 +12,9 @@
 - [X] List technologies, versions and how they will be used
 - [X] Write project plan
 - [X] Document user stories and select MVP stories
-- [ ] Confirm MVP stories meet Ent Java indie project objectives
-- [ ] Design screens - make sure all MVP user stories are covered
-- [ ] Triple-check for Checkpoint 1
+- [X] Confirm MVP stories meet Ent Java indie project objectives
+- [X] Design screens - make sure all MVP user stories are covered
+- [X] Triple-check for Checkpoint 1
 - [X] Update journal/time log/reflection - I should probably just use one :)
 
 For those using this as a model, continue adding weekly tasks by considering:
@@ -24,18 +24,19 @@ For those using this as a model, continue adding weekly tasks by considering:
 4. add in project checkpoints/milestones and tasks to achieve them
 5. I started a few of these below as examples
 
-### Week 4 - Class topic is Hibernate
-#### This week my focus is the Find Trails by Name user story
-- [ ] First cut at database design
+#### User AI input, view user stories
+
+- [X] First cut at database design
 - [ ] Create the dev version of the database
+- [ ] Create a class to connect to api
 - [ ] Create a class to perform CRUD
 - [ ] Create the config files for the DB connection info (dev and test)
 - [ ] Create a test version of the database for unit testing
-- [ ] Create unit tests for the TravelDao
+- [ ] Create unit tests for the TattooDao
 - [ ] Create a class for the DB connection business
-- [ ] Create JSP for saved suggestions
-- [ ] Create JSP for suggestion results
-- [ ] Create controller to route to travel suggestions jsp
+- [ ] Create JSP for interacting with AI
+- [ ] Create JSP for given saved suggestion results
+- [ ] Create controller to route to tattoo suggestions jsp
 - [ ] Create controller to manage the work of getting suggestions
 - [ ] Update weekly reflection
 
