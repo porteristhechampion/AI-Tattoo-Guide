@@ -25,7 +25,7 @@
 ---
 
 ## Week 5: Database Setup & API Integration
-- [X] **Set up database locally** using MySQL/PostgreSQL
+- [X] **Set up database locally** using MySQL
 - [X] Write **DDL (schema creation) scripts**
 - [ ] Implement **DAO classes** for CRUD operations (Users, Suggestions, Styles)
 - [ ] Write **unit tests for DAOs**
