@@ -20,9 +20,9 @@ public class OpenAI implements PropertiesLoader {
     private static final Logger logger = LogManager.getLogger(OpenAI.class);
 
     private Properties properties;
-    private static String apiKey;
-    private static String apiUrl;
-    private static String model;
+    private String apiKey;
+    private String apiUrl;
+    private String model;
 
     public OpenAI() {
         properties = loadProperties("/api.properties");
@@ -35,14 +35,7 @@ public class OpenAI implements PropertiesLoader {
         logger.info("OpenAI MODEL: " + model);
     }
 
-    public static void main(String[] args) {
-        // instance so constructor runs
-        OpenAI openAI = new OpenAI();
-        logger.info(openAI.getAIResponse("Give me a cool tattoo idea"));
-
-    }
-
-    public static String getAIResponse(String message) {
+    public String getAIResponse(String message) {
 
         try {
             URL urlObj = new URL(apiUrl);
@@ -67,9 +60,11 @@ public class OpenAI implements PropertiesLoader {
             }
             reader.close();
 
-//            logger.info(response.toString());
+            String result = extractAIResponse(response.toString());
 
-            return extractAIResponse(response.toString());
+            logger.info(result);
+
+            return result;
 
         } catch (IOException ioException) {
             logger.error(ioException);
@@ -78,7 +73,7 @@ public class OpenAI implements PropertiesLoader {
         }
     }
 
-    public static String extractAIResponse(String response) {
+    public String extractAIResponse(String response) {
         try {
 
             JsonObject jsonResponse = JsonParser.parseString(response).getAsJsonObject();
