@@ -6,39 +6,53 @@ import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.util.Properties;
 
+import edu.matc.entjava.persistence.PropertiesLoader;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 
-public class OpenAI {
-
-    private static final String API_KEY = System.getenv("OPENAI_API_KEY");
-    private static final String API_URL = "https://api.openai.com/v1/chat/completions";
-    private static final String MODEL = "gpt-3.5-turbo";
+public class OpenAI implements PropertiesLoader {
 
     private static final Logger logger = LogManager.getLogger(OpenAI.class);
 
-    public static void main(String[] args) {
+    private Properties properties;
+    private static String apiKey;
+    private static String apiUrl;
+    private static String model;
 
-        logger.info(getAIResponse("Give me a cool tattoo idea"));
-        System.out.println(System.getenv("OPENAI_API_KEY"));
+    public OpenAI() {
+        properties = loadProperties("/api.properties");
+
+        apiKey = properties.getProperty("OPENAI_API_KEY");
+        logger.info("OpenAI API Key: " + apiKey);
+        apiUrl = properties.getProperty("OPENAI_API_URL");
+        logger.info("OpenAI API URL: " + apiUrl);
+        model = properties.getProperty("OPENAI_MODEL");
+        logger.info("OpenAI MODEL: " + model);
+    }
+
+    public static void main(String[] args) {
+        // instance so constructor runs
+        OpenAI openAI = new OpenAI();
+        logger.info(openAI.getAIResponse("Give me a cool tattoo idea"));
 
     }
 
     public static String getAIResponse(String message) {
 
         try {
-            URL urlObj = new URL(API_URL);
+            URL urlObj = new URL(apiUrl);
             HttpURLConnection con = (HttpURLConnection) urlObj.openConnection();
 
             con.setRequestMethod("POST");
-            con.setRequestProperty("Authorization", "Bearer " + API_KEY);
+            con.setRequestProperty("Authorization", "Bearer " + apiKey);
             con.setRequestProperty("Content-Type", "application/json");
 
-            String body = "{\"model\": \"" + MODEL + "\", \"messages\": [{\"role\": \"user\", \"content\": \"" + message + "\"}]}";
+            String body = "{\"model\": \"" + model + "\", \"messages\": [{\"role\": \"user\", \"content\": \"" + message + "\"}]}";
             con.setDoOutput(true);
             OutputStreamWriter writer = new OutputStreamWriter(con.getOutputStream());
             writer.write(body);
