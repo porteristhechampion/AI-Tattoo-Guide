@@ -31,9 +31,9 @@
 - [ ] Write **unit tests for DAOs**
 - [X] Connect to OpenAI API:
     - [X] Create **API connector class**
-    - [ ] Implement **method for sending user queries and receiving suggestions**
+    - [X] Implement **method for sending user queries and receiving suggestions**
     - [X] Handle **error responses & API rate limits**
-- [ ] **Set up logging** using Log4J
+- [X] **Set up logging** using Log4J
 - [X] Weekly reflection
 
 ---

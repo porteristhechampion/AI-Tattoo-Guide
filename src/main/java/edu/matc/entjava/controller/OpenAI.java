@@ -24,6 +24,7 @@ public class OpenAI {
     public static void main(String[] args) {
 
         logger.info(getAIResponse("Give me a cool tattoo idea"));
+        System.out.println(System.getenv("OPENAI_API_KEY"));
 
     }
 
