@@ -2,45 +2,28 @@ package edu.matc.entjava.persistence;
 
 
 import edu.matc.entjava.entity.Suggestion;
+import jakarta.persistence.criteria.CriteriaQuery;
+import jakarta.persistence.criteria.Expression;
+import jakarta.persistence.criteria.Root;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-
-import java.sql.*;
-import java.util.ArrayList;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
+import org.hibernate.query.criteria.HibernateCriteriaBuilder;
 import java.util.List;
+
 
 public class SuggestionDAO {
 
-    private static final Logger logger = LogManager.getLogger(Database.class);
+    private static final Logger logger = LogManager.getLogger(SuggestionDAO.class);
+    SessionFactory sessionFactory = SessionFactoryProvider.getSessionFactory();
 
-    private Database db;
-
-    public Connection getConnected() throws Exception {
-        db = Database.getInstance();
-        db.connect();
-        return db.getConnection();
+    public Suggestion getById(int id) {
+        Session session = sessionFactory.openSession();
+        Suggestion suggestion = session.get(Suggestion.class, id);
+        session.close();
+        return suggestion;
     }
-
-    public List<Suggestion> getSuggestionsByUserID(String userID) {
-        List<Suggestion> suggestions = new ArrayList<>();
-        Connection connection = null;
-        String sql = "SELECT * FROM suggestions WHERE user_id=?";
-
-        try {
-            connection = getConnected();
-            PreparedStatement ps = connection.prepareStatement(sql);
-            ps.setString(1, userID);
-            ResultSet rs = ps.executeQuery();
-
-        } catch (SQLException sqlException) {
-            logger.error("SQL Exception: ", sqlException);
-        } catch (Exception exception) {
-            logger.error("Exception: ", exception);
-        }
-
-        return suggestions;
-    }
-
-
 
 }

@@ -27,7 +27,7 @@
 ## Week 5: Database Setup & API Integration
 - [X] **Set up database locally** using MySQL
 - [X] Write **DDL (schema creation) scripts**
-- [ ] Implement **DAO classes** for CRUD operations (Users, Suggestions, Styles)
+- [X] Implement **DAO classes** for CRUD operations (Users, Suggestions, Styles)
 - [ ] Write **unit tests for DAOs**
 - [X] Connect to OpenAI API:
     - [X] Create **API connector class**

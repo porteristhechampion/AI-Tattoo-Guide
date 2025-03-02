@@ -1,22 +1,52 @@
 package edu.matc.entjava.entity;
 
+import org.hibernate.annotations.GenericGenerator;
+
+import jakarta.persistence.*;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * A class to represent a suggestion.
  * @author ptaylor
  */
+@Entity
+@Table(name = "suggestions")
 public class Suggestion {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO, generator="native")
+    @GenericGenerator(name = "native", strategy = "native")
     private int id;
+
+    @Column (name = "suggestion", nullable = false)
     private String suggestion;
-    private int userId;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "user_id", nullable = false)
+    private User user;
+
+    @Column (name = "style_id", nullable = false)
     private int styleId;
+
+    @Column (name = "created_at", nullable = false)
     private LocalDateTime createdAt;
 
     /**
      * Instantiates a new suggestion.
      */
     public Suggestion() {
+    }
+
+    /**
+     * Constructor to initialize the fields.
+     */
+    public Suggestion(String suggestion, User user, int styleId, LocalDateTime createdAt) {
+        this.suggestion = suggestion;
+        this.user = user;
+        this.styleId = styleId;
+        this.createdAt = createdAt;
     }
 
     /**
@@ -50,18 +80,18 @@ public class Suggestion {
     }
 
     /**
-     * Gets the user id.
-     * @return user id
+     * Gets the user object.
+     * @return user object
      */
-    public int getUserId() {
-        return userId;
+    public User getUser() {
+        return user;
     }
     /**
-     * Sets the user id.
-     * @param userId user id
+     * Sets the user object.
+     * @param user user object
      */
-    public void setUserId(int userId) {
-        this.userId = userId;
+    public void setUser(User user) {
+        this.user = user;
     }
 
     /**

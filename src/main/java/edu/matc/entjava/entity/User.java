@@ -1,12 +1,29 @@
 package edu.matc.entjava.entity;
 
+import org.hibernate.annotations.GenericGenerator;
+
+import jakarta.persistence.*;
+import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * A class to represent a user.
  * @author ptaylor
  */
+@Entity
+@Table(name = "users")
 public class User {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO, generator="native")
+    @GenericGenerator(name = "native", strategy = "native")
     private int id;
+
+    @Column (name = "username", nullable = false)
     private String username;
+
+    @Column (name = "password", nullable = false)
     private String password;
 
     /**
