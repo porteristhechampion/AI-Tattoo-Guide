@@ -15,6 +15,12 @@ import org.apache.logging.log4j.Logger;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 
+/**
+ * This class connects to the OpenAI API, feeds user input to the AI,
+ * and returns the AI's response.
+ *
+ * @author ptaylor
+ */
 public class OpenAI implements PropertiesLoader {
 
     private static final Logger logger = LogManager.getLogger(OpenAI.class);
@@ -35,12 +41,20 @@ public class OpenAI implements PropertiesLoader {
         logger.info("OpenAI MODEL: " + model);
     }
 
-    // main class for testing purposes
+//    main class for testing purposes
 //    public static void main(String[] args) {
 //        OpenAI openAI = new OpenAI();
-//        openAI.getAIResponse("Give me a tattoo idea about playing cards.");
+//        openAI.getAIResponse("Give me a tattoo idea about iron man.");
 //    }
 
+    /**
+     * This method connects to the API, constructs the JSON request body for the api using the AI model
+     * and user inputted message, then writes the request to the output stream. After it reads through
+     * the API's response from the input stream and extracts just the AI-generated text.
+     *
+     * @param message user input
+     * @return AI response
+     */
     public String getAIResponse(String message) {
 
         try {
@@ -79,6 +93,13 @@ public class OpenAI implements PropertiesLoader {
         }
     }
 
+    /**
+     * This method takes the raw json data from the API and extracts just the AI response.
+     * Stack Overflow and ChatGPT assisted in writing this method.
+     *
+     * @param response raw json data from API
+     * @return AI response as string
+     */
     public String extractAIResponse(String response) {
         try {
 
@@ -94,8 +115,8 @@ public class OpenAI implements PropertiesLoader {
 
             return "Error: No content found in response";
 
-        } catch (Exception e) {
-            logger.error("Error extracting AI response: ", e);
+        } catch (Exception exception) {
+            logger.error("Error extracting AI response: ", exception);
             return "Error: Unable to extract AI response";
         }
     }
