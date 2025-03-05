@@ -13,6 +13,7 @@
         <property name="hibernate.c3p0.idle_test_period">3000</property>
 
         <mapping class="edu.matc.entjava.entity.Suggestion"/>
+        <mapping class="edu.matc.entjava.entity.User"/>
 
     </session-factory>
 

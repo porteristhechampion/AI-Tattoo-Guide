@@ -124,4 +124,10 @@ public class Suggestion {
     public void setCreatedAt(LocalDateTime createdAt) {
         this.createdAt = createdAt;
     }
+
+    @Override
+    public String toString() {
+        return "Suggestion{id=" + id + ", suggestion='" + suggestion + "', user=" + user.getId() + "}";
+    }
+
 }

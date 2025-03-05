@@ -53,3 +53,5 @@ testing my new DAO that uses hibernate. I also met with Alex, and we did a code 
 helpful and gave me some advice and shared some things that he struggled with during the development of his project. I wrote
 out my code review on Sunday and will turn that in today. I also want to completely finish testing and developing my DAO, so
 I can focus on deploying my project to AWS the rest of the week.
+
+Week 7 - 3/9/25
