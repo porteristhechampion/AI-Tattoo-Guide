@@ -17,7 +17,7 @@ I treated week 2 as more of a review of Adv Java since it has been over a year s
 struggled quite a bit with the exercise and had to go back multiple times and look at my final project from Adv Java.
 I also spent a long time deciding on what individual project I wanted to do and even wrote some code to determine if
 it was going to be a project I was able to do on my own since I have only worked with APIs in Adv JavaScript. It was
-also my 21st birthday this week so I did zero work on Thursday, Friday and Saturday since I spent the days with my
+also my 21st birthday this week, so I did zero work on Thursday, Friday and Saturday since I spent the days with my
 family and in Steven's Point visiting friends which caused a bit of a grind on Sunday.
 
 Week 3 - 2/9/25
@@ -42,3 +42,14 @@ I spent most of this week playing catch up and finished my first version of my p
 week 3 challenge. The week 3 challenge was pretty fun to work on and through week 6 I am going back and taking time to better
 plan out my indie project. I wanted to just start coding, but I am having a hard time getting started since my plan isn't
 very thorough.
+
+Week 6 - 3/2/25
+Time Spent: 13 hours (3 hours for project plan, 1 hour for code review)
+
+I spent a lot of this week going back and better adjusting my project plan to make future progress more efficiently. I ended
+up writing out my DAO before I looked forward to hibernate which was a big mistake since I had to go back and wipe out all of
+my progress and restart using hibernate. I properly adjusted my Suggestion entity using hibernate and am currently working on
+testing my new DAO that uses hibernate. I also met with Alex, and we did a code review together. Alex was very kind and
+helpful and gave me some advice and shared some things that he struggled with during the development of his project. I wrote
+out my code review on Sunday and will turn that in today. I also want to completely finish testing and developing my DAO, so
+I can focus on deploying my project to AWS the rest of the week.
