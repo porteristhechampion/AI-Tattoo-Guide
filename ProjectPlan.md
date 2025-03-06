@@ -28,7 +28,7 @@
 - [X] **Set up database locally** using MySQL
 - [X] Write **DDL (schema creation) scripts**
 - [X] Implement **DAO classes** for CRUD operations (Users, Suggestions, Styles)
-- [ ] Write **unit tests for DAOs**
+- [X] Write **unit tests for DAOs**
 - [X] Connect to OpenAI API:
     - [X] Create **API connector class**
     - [X] Implement **method for sending user queries and receiving suggestions**
@@ -40,7 +40,7 @@
 
 ## Week 6: Suggestion Storage & Styling Feature
 - [ ] Implement **suggestion saving functionality**
-- [ ] Implement **suggestion editing functionality**
+- [X] Implement **suggestion editing functionality**
 - [ ] Allow users to **delete their saved suggestions**
 - [ ] Implement **style selection (dropdown of styles)**
 - [ ] Allow users to ***add custom styles***

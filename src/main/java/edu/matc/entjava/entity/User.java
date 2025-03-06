@@ -3,7 +3,6 @@ package edu.matc.entjava.entity;
 import org.hibernate.annotations.GenericGenerator;
 
 import jakarta.persistence.*;
-import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 

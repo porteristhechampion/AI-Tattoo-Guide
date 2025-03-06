@@ -27,8 +27,9 @@ public class Suggestion {
     @JoinColumn(name = "user_id", nullable = false)
     private User user;
 
-    @Column (name = "style_id", nullable = false)
-    private int styleId;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "style_id", nullable = false)
+    private Style style;
 
     @Column (name = "created_at", nullable = false)
     private LocalDateTime createdAt;
@@ -42,10 +43,10 @@ public class Suggestion {
     /**
      * Constructor to initialize the fields.
      */
-    public Suggestion(String suggestion, User user, int styleId, LocalDateTime createdAt) {
+    public Suggestion(String suggestion, User user, Style style, LocalDateTime createdAt) {
         this.suggestion = suggestion;
         this.user = user;
-        this.styleId = styleId;
+        this.style = style;
         this.createdAt = createdAt;
     }
 
@@ -95,18 +96,18 @@ public class Suggestion {
     }
 
     /**
-     * Gets the style id.
-     * @return style id
+     * Gets the style object.
+     * @return style object
      */
-    public int getStyleId() {
-        return styleId;
+    public Style getStyle() {
+        return style;
     }
     /**
-     * Sets the style id.
-     * @param styleId style id
+     * Sets the style object.
+     * @param style style object
      */
-    public void setStyleId(int styleId) {
-        this.styleId = styleId;
+    public void setStyle(Style style) {
+        this.style = style;
     }
 
     /**
@@ -127,7 +128,7 @@ public class Suggestion {
 
     @Override
     public String toString() {
-        return "Suggestion{id=" + id + ", suggestion='" + suggestion + "', user=" + user.getId() + "}";
+        return "Suggestion{id=" + id + ", suggestion='" + suggestion + "', user=" + user.getId() + "', style=" + style.getId() + ", created= " + createdAt + "}";
     }
 
 }

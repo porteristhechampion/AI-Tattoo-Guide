@@ -26,4 +26,23 @@ public class SuggestionDAO {
         return suggestion;
     }
 
+    public void update(Suggestion suggestion) {
+        Session session = sessionFactory.openSession();
+        Transaction transaction = session.beginTransaction();
+        session.merge(suggestion);
+        transaction.commit();
+        session.close();
+    }
+
+    public int insert(Suggestion suggestion) {
+        int id = 0;
+        Session session = sessionFactory.openSession();
+        Transaction transaction = session.beginTransaction();
+        session.persist(suggestion);
+        transaction.commit();
+        id = suggestion.getId();
+        session.close();
+        return id;
+    }
+
 }

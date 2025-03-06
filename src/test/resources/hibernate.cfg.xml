@@ -14,6 +14,7 @@
 
         <mapping class="edu.matc.entjava.entity.Suggestion"/>
         <mapping class="edu.matc.entjava.entity.User"/>
+        <mapping class="edu.matc.entjava.entity.Style"/>
 
     </session-factory>
 

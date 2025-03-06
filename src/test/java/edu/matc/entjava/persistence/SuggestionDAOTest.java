@@ -23,8 +23,25 @@ class SuggestionDAOTest {
     @Test
     void getById() {
         suggestionDAO = new SuggestionDAO();
-        Suggestion suggestionRetrieved = suggestionDAO.getById(1);
+        Suggestion suggestionRetrieved = suggestionDAO.getById(2);
         assertNotNull(suggestionRetrieved);
+        assertEquals(2, suggestionRetrieved.getId());
+    }
+
+    @Test
+    void update() {
+        suggestionDAO = new SuggestionDAO();
+        Suggestion suggestionUpdate = suggestionDAO.getById(2);
+        suggestionUpdate.setSuggestion("test");
+        suggestionDAO.update(suggestionUpdate);
+        Suggestion suggestion = suggestionDAO.getById(2);
+        assertEquals("test", suggestion.getSuggestion());
+    }
+
+    @Test
+    void inster() {
+        suggestionDAO = new SuggestionDAO();
+        Suggestion suggestionInsert = new Suggestion();
     }
 
 }
