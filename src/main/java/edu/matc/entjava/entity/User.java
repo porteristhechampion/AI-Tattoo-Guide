@@ -25,7 +25,7 @@ public class User extends BaseEntity {
     @Column (name = "password", nullable = false)
     private String password;
 
-    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
     private List<Suggestion> suggestions = new ArrayList<>();
 
     /**

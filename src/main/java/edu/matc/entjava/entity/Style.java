@@ -22,7 +22,7 @@ public class Style extends BaseEntity {
     @Column (name = "style", nullable = false)
     private String style;
 
-    @OneToMany(mappedBy = "style", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(mappedBy = "style", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
     private List<Suggestion> suggestions = new ArrayList<>();
 
     /**

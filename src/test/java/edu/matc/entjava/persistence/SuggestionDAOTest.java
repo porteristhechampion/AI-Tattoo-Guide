@@ -9,6 +9,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.util.List;
+import java.time.LocalDateTime;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -29,9 +30,9 @@ class SuggestionDAOTest {
 
     @Test
     void getById() {
-        Suggestion suggestionRetrieved = suggestionDAO.getById(2);
+        User suggestionRetrieved = userDAO.getById(1);
         assertNotNull(suggestionRetrieved);
-        assertEquals(2, suggestionRetrieved.getId());
+        assertEquals(1, suggestionRetrieved.getId());
     }
 
     @Test
@@ -43,10 +44,15 @@ class SuggestionDAOTest {
         assertEquals("test", suggestion.getSuggestion());
     }
 
-//    @Test
-//    void insert() {
-//        suggestionDAO = new SuggestionDAO();
-//        Suggestion suggestionInsert = new Suggestion();
-//    }
+    @Test
+    void insert() {
+        User user = userDAO.getById(1);
+        Style style = styleDAO.getById(1);
+        Suggestion newSuggestion = new Suggestion("testing", user, style, LocalDateTime.now());
+        int insertedId = suggestionDAO.insert(newSuggestion);
+        assertNotEquals(0, insertedId);
+        Suggestion suggestion = suggestionDAO.getById(insertedId);
+        assertEquals("testing", suggestion.getSuggestion());
+    }
 
 }
