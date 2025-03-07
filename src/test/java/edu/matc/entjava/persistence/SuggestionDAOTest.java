@@ -55,4 +55,10 @@ class SuggestionDAOTest {
         assertEquals("testing", suggestion.getSuggestion());
     }
 
+    @Test
+    void delete() {
+        Suggestion suggestion = suggestionDAO.getById(6);
+        suggestionDAO.delete(suggestion);
+        assertNull(suggestionDAO.getById(6));
+    }
 }

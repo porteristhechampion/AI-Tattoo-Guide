@@ -24,7 +24,11 @@ public class TattooDAO<T extends BaseEntity> {
         Session session = getSession();
         T entity = session.get(type, id);
         session.close();
-        logger.info(entity.toString());
+        if (entity == null) {
+            logger.error("Entity not found");
+        } else {
+            logger.info(entity.toString());
+        }
         return entity;
     }
 
@@ -45,6 +49,14 @@ public class TattooDAO<T extends BaseEntity> {
         id = entity.getId();
         session.close();
         return id;
+    }
+
+    public void delete(T entity) {
+        Session session = getSession();
+        Transaction tx = session.beginTransaction();
+        session.delete(entity);
+        tx.commit();
+        session.close();
     }
 
 //    SessionFactory sessionFactory = SessionFactoryProvider.getSessionFactory();
