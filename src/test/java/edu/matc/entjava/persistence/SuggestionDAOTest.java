@@ -30,9 +30,15 @@ class SuggestionDAOTest {
 
     @Test
     void getById() {
-        User suggestionRetrieved = userDAO.getById(1);
+        Suggestion suggestionRetrieved = suggestionDAO.getById(1);
         assertNotNull(suggestionRetrieved);
         assertEquals(1, suggestionRetrieved.getId());
+    }
+
+    @Test
+    void getAllByUser() {
+        User userRetrieved = userDAO.getById(1);
+
     }
 
     @Test
