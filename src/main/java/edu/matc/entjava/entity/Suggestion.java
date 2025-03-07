@@ -13,7 +13,7 @@ import java.util.List;
  */
 @Entity
 @Table(name = "suggestions")
-public class Suggestion {
+public class Suggestion extends BaseEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO, generator="native")
@@ -54,6 +54,7 @@ public class Suggestion {
      * Gets suggestion id.
      * @return suggestion id
      */
+    @Override
     public int getId() {
         return id;
     }

@@ -12,7 +12,7 @@ import java.util.List;
  */
 @Entity
 @Table(name="styles")
-public class Style {
+public class Style extends BaseEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO, generator="native")
@@ -35,6 +35,7 @@ public class Style {
      * Gets the user id.
      * @return user id
      */
+    @Override
     public int getId() {
         return id;
     }
