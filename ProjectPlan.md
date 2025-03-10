@@ -39,17 +39,18 @@
 ---
 
 ## Week 6: Suggestion Storage & Styling Feature
-- [ ] Implement **suggestion saving functionality**
+- [X] Implement **suggestion saving functionality**
 - [X] Implement **suggestion editing functionality**
-- [ ] Allow users to **delete their saved suggestions**
+- [X] Allow users to **delete their saved suggestions**
 - [ ] Implement **style selection (dropdown of styles)**
 - [ ] Allow users to ***add custom styles***
-- [ ] Weekly reflection
+- [X] Weekly reflection
 
 ---
 
 ## Week 7: Backend Implementation - Authentication & User Management
-- [ ] Implement **user authentication**
+- [ ] Deploy to AWS
+- [ ] Implement **user authentication** using cognito
     - [ ] User **registration, login, logout**
     - [ ] Role-based access (user, admin)
 - [ ] Create **JSP pages for login, registration, dashboard**
