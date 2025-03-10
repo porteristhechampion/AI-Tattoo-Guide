@@ -37,8 +37,9 @@ class SuggestionDAOTest {
 
     @Test
     void getAllByUser() {
-        User userRetrieved = userDAO.getById(1);
-
+        suggestionDAO = new TattooDAO<>(Suggestion.class);
+        List<Suggestion> suggestions = suggestionDAO.getAllByID(1);
+        assertEquals(3, suggestions.size());
     }
 
     @Test
