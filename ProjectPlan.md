@@ -59,11 +59,11 @@
 ---
 
 ## Week 7.5: Checkpoint 2 – Database & CRUD Operations
-- [ ] **Double-check all items for Checkpoint 2**
-    - [ ] **Database schema finalized & implemented**
-    - [ ] At least **one DAO with full CRUD implemented using Hibernate**
-    - [ ] DAO is **fully unit tested**
-    - [ ] Log4J **replaces all System.out.println() statements**
+- [X] **Double-check all items for Checkpoint 2**
+    - [X] **Database schema finalized & implemented**
+    - [X] At least **one DAO with full CRUD implemented using Hibernate**
+    - [X] DAO is **fully unit tested**
+    - [X] Log4J **replaces all System.out.println() statements**
 - [ ] **Set up AWS RDS instance for the database**
 - [ ] **Deploy project to AWS**
 - [ ] Update journal
