@@ -51,22 +51,23 @@ class SuggestionDAOTest {
         assertEquals("test", suggestion.getSuggestion());
     }
 
-    // BLOCKED FOR BUILD
-//    @Test
-//    void insert() {
-//        User user = userDAO.getById(1);
-//        Style style = styleDAO.getById(1);
-//        Suggestion newSuggestion = new Suggestion("testing", user, style, LocalDateTime.now());
-//        int insertedId = suggestionDAO.insert(newSuggestion);
-//        assertNotEquals(0, insertedId);
-//        Suggestion suggestion = suggestionDAO.getById(insertedId);
-//        assertEquals("testing", suggestion.getSuggestion());
-//    }
-//
-//    @Test
-//    void delete() {
-//        Suggestion suggestion = suggestionDAO.getById(6);
-//        suggestionDAO.delete(suggestion);
-//        assertNull(suggestionDAO.getById(6));
-//    }
+
+    @Test
+    void insert() {
+        User user = userDAO.getById(1);
+        Style style = styleDAO.getById(1);
+        Suggestion newSuggestion = new Suggestion("testing", user, style, LocalDateTime.now());
+        int insertedId = suggestionDAO.insert(newSuggestion);
+        assertNotEquals(0, insertedId);
+        Suggestion suggestion = suggestionDAO.getById(insertedId);
+        assertEquals("testing", suggestion.getSuggestion());
+    }
+
+    @Test
+    void delete() {
+        User user = new User();
+        Suggestion suggestion = suggestionDAO.getById(11);
+        suggestionDAO.delete(suggestion);
+        assertNull(suggestionDAO.getById(11));
+    }
 }
