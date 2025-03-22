@@ -37,7 +37,6 @@ class SuggestionDAOTest {
 
     @Test
     void getAllByUser() {
-        suggestionDAO = new TattooDAO<>(Suggestion.class);
         List<Suggestion> suggestions = suggestionDAO.getAllByID(1);
         assertEquals(4, suggestions.size());
     }
@@ -54,7 +53,7 @@ class SuggestionDAOTest {
 
     @Test
     void insert() {
-        User user = userDAO.getById(1);
+        User user = userDAO.getById(2);
         Style style = styleDAO.getById(1);
         Suggestion newSuggestion = new Suggestion("testing", user, style, LocalDateTime.now());
         int insertedId = suggestionDAO.insert(newSuggestion);
@@ -65,9 +64,10 @@ class SuggestionDAOTest {
 
     @Test
     void delete() {
-        User user = new User();
-        Suggestion suggestion = suggestionDAO.getById(11);
-        suggestionDAO.delete(suggestion);
-        assertNull(suggestionDAO.getById(11));
+        List<Suggestion> suggestions = suggestionDAO.getAllByID(2);
+        assertEquals(1, suggestions.size());
+        Suggestion suggestionDelete = suggestions.get(0);
+        suggestionDAO.delete(suggestionDelete);
+        assertNull(suggestionDAO.getById(suggestionDelete.getId()));
     }
 }

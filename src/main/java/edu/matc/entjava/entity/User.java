@@ -22,9 +22,6 @@ public class User extends BaseEntity {
     @Column (name = "username", nullable = false)
     private String username;
 
-    @Column (name = "password", nullable = false)
-    private String password;
-
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
     private List<Suggestion> suggestions = new ArrayList<>();
 
@@ -32,6 +29,13 @@ public class User extends BaseEntity {
      * Instantiates a new user.
      */
     public User() {
+    }
+
+    /**
+     * Constructor to initialize the fields.
+     */
+    public User(String username) {
+        this.username = username;
     }
 
     /**
@@ -66,39 +70,40 @@ public class User extends BaseEntity {
     }
 
     /**
-     * Gets the password.
-     * @return password
+     * Gets all suggestions for a given user.
+     * @return all suggestions for a given user
      */
-    public String getPassword() {
-        return password;
-    }
-    /**
-     * Sets the password.
-     * @param password password
-     */
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
-
     public List<Suggestion> getSuggestions() {
         return suggestions;
     }
-
+    /**
+     * Sets the suggestions for a user.
+     * @param suggestions all suggestions for a given user
+     */
     public void setSuggestions(List<Suggestion> suggestions) {
         this.suggestions = suggestions;
     }
-
+    /**
+     * Adds a single suggestion for the user.
+     * @param suggestion suggestion object
+     */
     public void addSuggestion(Suggestion suggestion) {
         suggestions.add(suggestion);
         suggestion.setUser(this);
     }
-
+    /**
+     * Removes a single suggestion for the user.
+     * @param suggestion suggestion object
+     */
     public void removeSuggestion(Suggestion suggestion) {
         suggestions.remove(suggestion);
         suggestion.setUser(null);
     }
 
+    /**
+     * formats user data into string.
+     * @return user object string
+     */
     @Override
     public String toString() {
         return "User{id=" + id + ", username='" + username + "', suggestions=" + suggestions.size() + "}";
