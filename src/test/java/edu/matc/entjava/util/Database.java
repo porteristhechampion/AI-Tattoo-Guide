@@ -1,6 +1,9 @@
 package edu.matc.entjava.util;
 
+import edu.matc.entjava.controller.OpenAI;
 import edu.matc.entjava.persistence.PropertiesLoader;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
@@ -19,6 +22,8 @@ import java.util.Properties;
  */
 
 public class Database implements PropertiesLoader {
+
+    private static final Logger logger = LogManager.getLogger(Database.class);
 
     // create an object of the class Database
     private static Database instance = new Database();
@@ -39,8 +44,7 @@ public class Database implements PropertiesLoader {
         try {
             properties = loadProperties("/database.properties");
         } catch (Exception e) {
-            System.out.println("Database.loadProperties()..." + e);
-            e.printStackTrace();
+            logger.error(e);
         }
     }
 
@@ -81,7 +85,7 @@ public class Database implements PropertiesLoader {
             try {
                 connection.close();
             } catch (SQLException e) {
-                System.out.println("Cannot close connection" + e);
+                logger.error(e);
             }
         }
 
@@ -117,9 +121,9 @@ public class Database implements PropertiesLoader {
             }
 
         } catch (SQLException se) {
-            System.out.println("SQL Exception" + se);
+            logger.error(se);
         } catch (Exception e) {
-            System.out.println("Exception" + e);
+            logger.error(e);
         } finally {
             disconnect();
         }
