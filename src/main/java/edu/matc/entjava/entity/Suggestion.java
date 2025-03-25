@@ -8,7 +8,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * A class to represent a suggestion.
+ * A class to represent a suggestion in the system.
+ * This class maps to the "suggestions" table in the tattoo database which contains
+ * information about the suggestion text, the user who created it, its associated
+ * style, and the creation time.
  * @author ptaylor
  */
 @Entity
@@ -127,6 +130,10 @@ public class Suggestion extends BaseEntity {
         this.createdAt = createdAt;
     }
 
+    /**
+     * Converts object data into a string.
+     * @return string containing object data
+     */
     @Override
     public String toString() {
         return "Suggestion{id=" + id + ", suggestion='" + suggestion + "', user=" + user.getId() + "', style=" + style.getId() + ", created= " + createdAt + "}";

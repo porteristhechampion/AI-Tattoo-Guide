@@ -61,6 +61,11 @@ class SuggestionDAOTest {
         Suggestion suggestion = suggestionDAO.getById(insertedId);
         assertEquals("testing", suggestion.getSuggestion());
     }
+//    when trying to compare the objects the data is the exact same, but the references are different.
+//    researched how to fix this and, it says to implement equals and hashCode methods which I am going
+//    to skip for now since I am already behind and don't want to spend extra time proving something
+//    I already have confirmed to work, so I can get done with my individual project and not keep my
+//    team waiting now that we are starting the team project.
 
     @Test
     void delete() {

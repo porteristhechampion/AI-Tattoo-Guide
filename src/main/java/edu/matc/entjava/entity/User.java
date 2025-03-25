@@ -7,7 +7,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * A class to represent a user.
+ * A class to represent a user in the system.
+ * This class maps to the "users" table in the tattoo database which contains
+ * information about the username, and can modify and return all suggestions
+ * associated with the given style.
  * @author ptaylor
  */
 @Entity
@@ -101,8 +104,8 @@ public class User extends BaseEntity {
     }
 
     /**
-     * formats user data into string.
-     * @return user object string
+     * Converts object data into a string.
+     * @return string containing object data
      */
     @Override
     public String toString() {
