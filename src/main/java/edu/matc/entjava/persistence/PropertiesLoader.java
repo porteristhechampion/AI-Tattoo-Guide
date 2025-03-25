@@ -1,5 +1,9 @@
 package edu.matc.entjava.persistence;
 
+import edu.matc.entjava.controller.OpenAI;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import java.io.IOException;
 import java.util.Properties;
 
@@ -11,6 +15,8 @@ import java.util.Properties;
  *
  */
 public interface PropertiesLoader {
+
+    static final Logger logger = LogManager.getLogger(PropertiesLoader.class);
 
     /**
      * This default method will load a properties file into a Properties instance
@@ -24,9 +30,9 @@ public interface PropertiesLoader {
         try {
             properties.load(this.getClass().getResourceAsStream(propertiesFilePath));
         } catch (IOException ioException) {
-            ioException.printStackTrace();
+            logger.error(ioException);
         } catch (Exception exception) {
-            exception.printStackTrace();
+            logger.error(exception);
         }
         return properties;
     }
