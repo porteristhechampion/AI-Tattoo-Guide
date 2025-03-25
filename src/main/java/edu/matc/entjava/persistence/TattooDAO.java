@@ -74,7 +74,7 @@ public class TattooDAO<T extends BaseEntity> {
 
         logger.debug(list.toString());
         session.close();
-        return list;
+        return list.isEmpty() ? null : list;
     }
 
     /**

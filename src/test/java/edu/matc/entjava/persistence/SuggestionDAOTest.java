@@ -75,4 +75,21 @@ class SuggestionDAOTest {
         suggestionDAO.delete(suggestionDelete);
         assertNull(suggestionDAO.getById(suggestionDelete.getId()));
     }
+
+    @Test
+    void deleteUser() {
+        User user = new User("pjtaylor");
+        userDAO.insert(user);
+        Style style = styleDAO.getById(5);
+        Suggestion newSuggestion = new Suggestion("deleted user entry", user, style, LocalDateTime.now());
+        int insertedId = suggestionDAO.insert(newSuggestion);
+        assertNotEquals(0, insertedId);
+        Suggestion suggestion = suggestionDAO.getById(insertedId);
+        assertEquals("deleted user entry", suggestion.getSuggestion());
+        userDAO.delete(user);
+        User deletedUser = userDAO.getById(user.getId());
+        assertNull(deletedUser);
+        List<Suggestion> suggestions = suggestionDAO.getAllByID(user.getId());
+        assertNull(suggestions);
+    }
 }
