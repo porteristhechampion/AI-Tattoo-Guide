@@ -4,7 +4,6 @@ import edu.matc.entjava.entity.Style;
 import edu.matc.entjava.entity.Suggestion;
 import edu.matc.entjava.entity.User;
 import edu.matc.entjava.util.Database;
-import org.junit.Before;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -13,12 +12,18 @@ import java.time.LocalDateTime;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class SuggestionDAOTest {
+/**
+ * Unit test class for testing CRUD operations on the TattooDAO.
+ */
+class DAOTest {
 
     TattooDAO<Suggestion> suggestionDAO;
     TattooDAO<User> userDAO;
     TattooDAO<Style> styleDAO;
 
+    /**
+     * Sets up the test environment by initializing DAO objects and resetting the database.
+     */
     @BeforeEach
     void setUp() {
         suggestionDAO = new TattooDAO<>(Suggestion.class);
@@ -28,6 +33,9 @@ class SuggestionDAOTest {
         db.runSQL("cleanDB.sql");
     }
 
+    /**
+     * Tests retrieval of a Suggestion entity by its ID.
+     */
     @Test
     void getById() {
         Suggestion suggestionRetrieved = suggestionDAO.getById(1);
@@ -35,12 +43,18 @@ class SuggestionDAOTest {
         assertEquals(1, suggestionRetrieved.getId());
     }
 
+    /**
+     * Tests retrieval of all Suggestion entities associated with a specific user ID.
+     */
     @Test
     void getAllByUser() {
         List<Suggestion> suggestions = suggestionDAO.getAllByID(1);
         assertEquals(4, suggestions.size());
     }
 
+    /**
+     * Tests updating an existing Suggestion entity.
+     */
     @Test
     void update() {
         Suggestion suggestionUpdate = suggestionDAO.getById(2);
@@ -50,7 +64,9 @@ class SuggestionDAOTest {
         assertEquals("test", suggestion.getSuggestion());
     }
 
-
+    /**
+     * Tests inserting a new Suggestion entity.
+     */
     @Test
     void insert() {
         User user = userDAO.getById(2);
@@ -67,6 +83,9 @@ class SuggestionDAOTest {
 //    I already have confirmed to work, so I can get done with my individual project and not keep my
 //    team waiting now that we are starting the team project.
 
+    /**
+     * Tests deleting a Suggestion entity.
+     */
     @Test
     void delete() {
         List<Suggestion> suggestions = suggestionDAO.getAllByID(2);
@@ -76,6 +95,9 @@ class SuggestionDAOTest {
         assertNull(suggestionDAO.getById(suggestionDelete.getId()));
     }
 
+    /**
+     * Tests deleting a User entity and ensuring associated suggestions are removed.
+     */
     @Test
     void deleteUser() {
         User user = new User("pjtaylor");
