@@ -55,3 +55,31 @@ out my code review on Sunday and will turn that in today. I also want to complet
 I can focus on deploying my project to AWS the rest of the week.
 
 Week 7 - 3/9/25
+Time Spent: 5 hours (rough estimate)
+
+I'm writing this after the fact since I am a few weeks behind on my journal but this week I mainly worked on fully completing
+my DAO. I finished around 90% of it and got most of it tested. Writing this during week 9 I still have some adjustments to make
+but the bulk of it was finished in this week. I also did a code review with Adam this week, we both met up and showed what
+progress we currently had on our projects. Meeting with Adam was nice because we were able to share what we were struggling with
+to give each other a better insight into how to finish our projects.
+
+
+Week 8 - 3/16/25
+Time Spent: 3 hours (rough estimate)
+I'm writing this after the fact since I am a few weeks behind on my journal but this week I mainly worked on fixing and adding to
+the tests for my DAO. I had missed some things and I fixed a decent amount of them but as of week 9 I still have a few things to
+finish up. I didn't spend much time this week on this course compared to past weeks since I had kind of a busy week.
+
+
+Week 9 - 3/30/25
+Time Spent: 5 hours
+Week 9 included spring break, and I'm writing this on 3/28. I didn't do much during spring break, but I did adjust my unit tests
+so they would not be interfered with prior entries into the database and that is all working properly. After submitting them again
+I still have some things to add, but I'm happy with where they are at right now and will go back to adjust them later. Week 9 also 
+was the start of our team project and I spent a good chunk of time working on that as well which is not included in the time spent.
+I rewrote my OpenAI class using the RoboPOJO generator and that is all finished and working as expected. My plan right now is to
+finish my unit testing, and then get a very rough template for my jsps. I don't have a lot of experience with AWS, and I've heard from
+other students that they have been getting charged a little bit for it. They haven't been getting charged a lot, but because of my lack
+of experience I want to make sure that I have a working project I can upload, so I can spend as little time as possible with it deployed.
+Once I finish my unit testing and have a rough working example with my jsps I will deploy my project to AWS and work on getting cognito
+setup, then adjust formatting to create a final result and once I have all of that finished my project will be completed.
