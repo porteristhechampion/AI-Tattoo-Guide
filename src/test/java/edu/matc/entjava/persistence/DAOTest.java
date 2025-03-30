@@ -113,5 +113,6 @@ class DAOTest {
         assertNull(deletedUser);
         List<Suggestion> suggestions = suggestionDAO.getAllByID(user.getId());
         assertNull(suggestions);
+        assertNull(user);
     }
 }
