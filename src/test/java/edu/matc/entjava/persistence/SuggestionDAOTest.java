@@ -15,7 +15,7 @@ import static org.junit.jupiter.api.Assertions.*;
 /**
  * Unit test class for testing CRUD operations on the TattooDAO.
  */
-class DAOTest {
+class SuggestionDAOTest {
 
     TattooDAO<Suggestion> suggestionDAO;
     TattooDAO<User> userDAO;
@@ -77,11 +77,6 @@ class DAOTest {
         Suggestion suggestion = suggestionDAO.getById(insertedId);
         assertEquals("testing", suggestion.getSuggestion());
     }
-//    when trying to compare the objects the data is the exact same, but the references are different.
-//    researched how to fix this and, it says to implement equals and hashCode methods which I am going
-//    to skip for now since I am already behind and don't want to spend extra time proving something
-//    I already have confirmed to work, so I can get done with my individual project and not keep my
-//    team waiting now that we are starting the team project.
 
     /**
      * Tests deleting a Suggestion entity.
@@ -93,26 +88,5 @@ class DAOTest {
         Suggestion suggestionDelete = suggestions.get(0);
         suggestionDAO.delete(suggestionDelete);
         assertNull(suggestionDAO.getById(suggestionDelete.getId()));
-    }
-
-    /**
-     * Tests deleting a User entity and ensuring associated suggestions are removed.
-     */
-    @Test
-    void deleteUser() {
-        User user = new User("pjtaylor");
-        userDAO.insert(user);
-        Style style = styleDAO.getById(5);
-        Suggestion newSuggestion = new Suggestion("deleted user entry", user, style, LocalDateTime.now());
-        int insertedId = suggestionDAO.insert(newSuggestion);
-        assertNotEquals(0, insertedId);
-        Suggestion suggestion = suggestionDAO.getById(insertedId);
-        assertEquals("deleted user entry", suggestion.getSuggestion());
-        userDAO.delete(user);
-        User deletedUser = userDAO.getById(user.getId());
-        assertNull(deletedUser);
-        List<Suggestion> suggestions = suggestionDAO.getAllByID(user.getId());
-        assertNull(suggestions);
-        assertNull(user);
     }
 }
