@@ -12,7 +12,10 @@ import java.time.LocalDateTime;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-
+/**
+ * Unit test class for testing CRUD operations for the User entity
+ * in the DAO.
+ */
 public class UserDAOTest {
 
     TattooDAO<Suggestion> suggestionDAO;
@@ -72,7 +75,7 @@ public class UserDAOTest {
         assertNull(deletedUser);
         List<Suggestion> suggestions = suggestionDAO.getAllByID(user.getId());
         assertNull(suggestions);
-        assertNull(user);
+        assertNotNull(user);
     }
 
 }

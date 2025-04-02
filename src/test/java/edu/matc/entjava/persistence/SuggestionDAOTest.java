@@ -13,9 +13,10 @@ import java.time.LocalDateTime;
 import static org.junit.jupiter.api.Assertions.*;
 
 /**
- * Unit test class for testing CRUD operations on the TattooDAO.
+ * Unit test class for testing CRUD operations for the Suggestion entity
+ * in the DAO.
  */
-class SuggestionDAOTest {
+public class SuggestionDAOTest {
 
     TattooDAO<Suggestion> suggestionDAO;
     TattooDAO<User> userDAO;
@@ -76,6 +77,8 @@ class SuggestionDAOTest {
         assertNotEquals(0, insertedId);
         Suggestion suggestion = suggestionDAO.getById(insertedId);
         assertEquals("testing", suggestion.getSuggestion());
+        assertEquals(2, suggestion.getUser().getId());
+        assertEquals(1, suggestion.getStyle().getId());
     }
 
     /**
@@ -89,4 +92,5 @@ class SuggestionDAOTest {
         suggestionDAO.delete(suggestionDelete);
         assertNull(suggestionDAO.getById(suggestionDelete.getId()));
     }
+
 }
