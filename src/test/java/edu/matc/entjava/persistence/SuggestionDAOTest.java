@@ -91,6 +91,8 @@ public class SuggestionDAOTest {
         Suggestion suggestionDelete = suggestions.get(0);
         suggestionDAO.delete(suggestionDelete);
         assertNull(suggestionDAO.getById(suggestionDelete.getId()));
+        User user = userDAO.getById(2);
+        assertNotNull(user);
     }
 
 }
