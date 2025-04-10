@@ -83,3 +83,9 @@ other students that they have been getting charged a little bit for it. They hav
 of experience I want to make sure that I have a working project I can upload, so I can spend as little time as possible with it deployed.
 Once I finish my unit testing and have a rough working example with my jsps I will deploy my project to AWS and work on getting cognito
 setup, then adjust formatting to create a final result and once I have all of that finished my project will be completed.
+
+Week 10 - 4/6/25
+Time Spent: 2 hours
+I didn't spend very much time on my indie project this week and spent most of the time working on the team project. I mostly just
+worked on perfecting my unit tests, and I'm getting SUPER close to finishing that. I will hopefully have more time to work on my
+indie project in the next few weeks, and I am feeling very confident that I will be able to finish it all up moving forward.

@@ -38,6 +38,7 @@ public class User extends BaseEntity {
      * Constructor to initialize the fields.
      */
     public User(String username) {
+        this();
         this.username = username;
     }
 

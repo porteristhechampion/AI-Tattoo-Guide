@@ -47,6 +47,7 @@ public class Suggestion extends BaseEntity {
      * Constructor to initialize the fields.
      */
     public Suggestion(String suggestion, User user, Style style, LocalDateTime createdAt) {
+        this();
         this.suggestion = suggestion;
         this.user = user;
         this.style = style;

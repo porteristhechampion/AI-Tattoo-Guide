@@ -35,6 +35,14 @@ public class Style extends BaseEntity {
     }
 
     /**
+     * Constructor to initialize the fields.
+     */
+    public Style(String style) {
+        this();
+        this.style = style;
+    }
+
+    /**
      * Gets the user id.
      * @return user id
      */
