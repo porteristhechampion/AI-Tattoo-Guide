@@ -95,4 +95,17 @@ public class SuggestionDAOTest {
         assertNotNull(user);
     }
 
+    /**
+     * Tests retrieving by a property.
+     */
+    @Test
+    void getByPropertyLike() {
+        List<User> users = userDAO.getByPropertyLike("username", "ptaylor");
+        assertEquals(1, users.size());
+        List<Suggestion> suggestions = suggestionDAO.getByPropertyLike("suggestion", "testing");
+        assertEquals(2, suggestions.size());
+        List<Style> styles = styleDAO.getByPropertyLike("style", "Blackwork");
+        assertEquals(1, styles.size());
+    }
+
 }

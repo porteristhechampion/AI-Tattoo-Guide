@@ -3,6 +3,7 @@ package edu.matc.entjava.persistence;
 
 import edu.matc.entjava.entity.BaseEntity;
 import jakarta.persistence.criteria.CriteriaQuery;
+import jakarta.persistence.criteria.Expression;
 import jakarta.persistence.criteria.Root;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -59,7 +60,7 @@ public class TattooDAO<T extends BaseEntity> {
     }
 
     /**
-     * Returns all suggestions based on a user id
+     * Returns all suggestions based on a user id.
      * @param id user id
      * @return list of all suggestions
      */
@@ -75,6 +76,27 @@ public class TattooDAO<T extends BaseEntity> {
         logger.debug(list.toString());
         session.close();
         return list.isEmpty() ? null : list;
+    }
+
+    /**
+     * Returns all values based on a given property.
+     * @param property column
+     * @param value property like
+     * @return list of all entities
+     */
+    public List<T> getByPropertyLike(String property, String value) {
+        Session session = getSession();
+
+        HibernateCriteriaBuilder builder = session.getCriteriaBuilder();
+        CriteriaQuery<T> criteria = builder.createQuery(type);
+        Root<T> root = criteria.from(type);
+        Expression<String> propertyPath = root.get(property);
+
+        criteria.where(builder.like(propertyPath, "%" + value + "%"));
+
+        List<T> list = session.createQuery(criteria).getResultList();
+        session.close();
+        return list;
     }
 
     /**
