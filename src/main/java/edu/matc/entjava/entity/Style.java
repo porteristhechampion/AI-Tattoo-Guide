@@ -5,6 +5,7 @@ import org.hibernate.annotations.GenericGenerator;
 import jakarta.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 /**
  * A class to represent a style in the system.
@@ -114,5 +115,26 @@ public class Style extends BaseEntity {
     @Override
     public String toString() {
         return "User{id=" + id + ", style='" + style + "', suggestions=" + suggestions.size() + "}";
+    }
+
+    /**
+     * Checks to see if object values match.
+     * @param o object
+     * @return true or false
+     */
+    @Override
+    public boolean equals(Object o) {
+        if (o == null || getClass() != o.getClass()) return false;
+        Style style1 = (Style) o;
+        return id == style1.id && Objects.equals(style, style1.style);
+    }
+
+    /**
+     * Generates hash code based on object values.
+     * @return hash code
+     */
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, style);
     }
 }

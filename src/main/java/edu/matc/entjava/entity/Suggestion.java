@@ -4,8 +4,7 @@ import org.hibernate.annotations.GenericGenerator;
 
 import jakarta.persistence.*;
 import java.time.LocalDateTime;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Objects;
 
 /**
  * A class to represent a suggestion in the system.
@@ -26,11 +25,11 @@ public class Suggestion extends BaseEntity {
     @Column (name = "suggestion", nullable = false)
     private String suggestion;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "user_id", nullable = false)
     private User user;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "style_id", nullable = false)
     private Style style;
 
@@ -140,4 +139,24 @@ public class Suggestion extends BaseEntity {
         return "Suggestion{id=" + id + ", suggestion='" + suggestion + "', user=" + user.getId() + "', style=" + style.getId() + ", created= " + createdAt + "}";
     }
 
+    /**
+     * Checks to see if object values match.
+     * @param o object
+     * @return true or false
+     */
+    @Override
+    public boolean equals(Object o) {
+        if (o == null || getClass() != o.getClass()) return false;
+        Suggestion that = (Suggestion) o;
+        return id == that.id && Objects.equals(suggestion, that.suggestion) && Objects.equals(user, that.user) && Objects.equals(style, that.style) && Objects.equals(createdAt, that.createdAt);
+    }
+
+    /**
+     * Generates hash code based on object values.
+     * @return hash code
+     */
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, suggestion, user, style, createdAt);
+    }
 }

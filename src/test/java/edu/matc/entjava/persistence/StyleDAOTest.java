@@ -7,6 +7,7 @@ import edu.matc.entjava.util.Database;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import java.time.temporal.ChronoUnit;
 import java.util.List;
 import java.time.LocalDateTime;
 
@@ -49,7 +50,7 @@ public class StyleDAOTest {
         styleToUpdate.setStyle("testUpdate");
         styleDAO.update(styleToUpdate);
         Style updatedStyle = styleDAO.getById(11);
-        assertEquals("testUpdate", updatedStyle.getStyle());
+        assertEquals(styleToUpdate, updatedStyle);
     }
 
     /**
@@ -61,15 +62,15 @@ public class StyleDAOTest {
         Style style = new Style("testStyle");
         styleDAO.insert(style);
         User user = userDAO.getById(2);
-        Suggestion newSuggestion = new Suggestion("test style delete", user, style, LocalDateTime.now());
+        LocalDateTime now = LocalDateTime.now().truncatedTo(ChronoUnit.SECONDS);
+        Suggestion newSuggestion = new Suggestion("test style delete", user, style, now);
         int insertedId = suggestionDAO.insert(newSuggestion);
         assertNotEquals(0, insertedId);
         Suggestion suggestion = suggestionDAO.getById(insertedId);
-        assertEquals("test style delete", suggestion.getSuggestion());
+        assertEquals(newSuggestion, suggestion);
         styleDAO.delete(style);
         Style deletedStyle = styleDAO.getById(style.getId());
         assertNull(deletedStyle);
         assertNull(suggestionDAO.getById(insertedId));
     }
-
 }
