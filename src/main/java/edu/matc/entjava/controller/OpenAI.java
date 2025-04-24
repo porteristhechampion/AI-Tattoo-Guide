@@ -42,12 +42,6 @@ public class OpenAI implements PropertiesLoader {
         logger.info("OpenAI MODEL: " + model);
     }
 
-//    main class for testing purposes
-//    public static void main(String[] args) {
-//        OpenAI openAI = new OpenAI();
-//        openAI.getAIResponse("Give me a tattoo idea about iron man.");
-//    }
-
     /**
      * Sends a user message to the OpenAI API and retrieves the AI's reponse.
      *

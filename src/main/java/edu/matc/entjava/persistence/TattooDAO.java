@@ -66,6 +66,7 @@ public class TattooDAO<T extends BaseEntity> {
      */
     public List<T> getAllByID(int id) {
         Session session = getSession();
+
         HibernateCriteriaBuilder builder = session.getCriteriaBuilder();
         CriteriaQuery<T> criteria = builder.createQuery(type);
         Root<T> root = criteria.from(type);
@@ -93,10 +94,11 @@ public class TattooDAO<T extends BaseEntity> {
         Expression<String> propertyPath = root.get(property);
 
         criteria.where(builder.like(propertyPath, "%" + value + "%"));
-
         List<T> list = session.createQuery(criteria).getResultList();
+
+        logger.debug(list.toString());
         session.close();
-        return list;
+        return list.isEmpty() ? null : list;
     }
 
     /**
