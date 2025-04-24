@@ -7,6 +7,7 @@ import edu.matc.entjava.util.Database;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import java.time.temporal.ChronoUnit;
 import java.util.List;
 import java.time.LocalDateTime;
 
@@ -62,7 +63,7 @@ public class SuggestionDAOTest {
         suggestionUpdate.setSuggestion("test");
         suggestionDAO.update(suggestionUpdate);
         Suggestion suggestion = suggestionDAO.getById(2);
-        assertEquals("test", suggestion.getSuggestion());
+        assertEquals(suggestionUpdate, suggestion);
     }
 
     /**
@@ -72,13 +73,12 @@ public class SuggestionDAOTest {
     void insert() {
         User user = userDAO.getById(2);
         Style style = styleDAO.getById(1);
-        Suggestion newSuggestion = new Suggestion("testing", user, style, LocalDateTime.now());
+        LocalDateTime now = LocalDateTime.now().truncatedTo(ChronoUnit.SECONDS);
+        Suggestion newSuggestion = new Suggestion("testing", user, style, now);
         int insertedId = suggestionDAO.insert(newSuggestion);
         assertNotEquals(0, insertedId);
         Suggestion suggestion = suggestionDAO.getById(insertedId);
-        assertEquals("testing", suggestion.getSuggestion());
-        assertEquals(2, suggestion.getUser().getId());
-        assertEquals(1, suggestion.getStyle().getId());
+        assertEquals(newSuggestion, suggestion);
     }
 
     /**

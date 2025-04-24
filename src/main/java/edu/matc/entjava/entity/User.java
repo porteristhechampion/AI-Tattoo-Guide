@@ -5,6 +5,7 @@ import org.hibernate.annotations.GenericGenerator;
 import jakarta.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 /**
  * A class to represent a user in the system.
@@ -113,4 +114,24 @@ public class User extends BaseEntity {
         return "User{id=" + id + ", username='" + username + "', suggestions=" + suggestions.size() + "}";
     }
 
+    /**
+     * Checks to see if object values match.
+     * @param o object
+     * @return true or false
+     */
+    @Override
+    public boolean equals(Object o) {
+        if (o == null || getClass() != o.getClass()) return false;
+        User user = (User) o;
+        return id == user.id && Objects.equals(username, user.username);
+    }
+
+    /**
+     * Generates hash code based on object values.
+     * @return hash code
+     */
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, username);
+    }
 }

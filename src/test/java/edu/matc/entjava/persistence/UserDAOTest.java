@@ -7,6 +7,7 @@ import edu.matc.entjava.util.Database;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import java.time.temporal.ChronoUnit;
 import java.util.List;
 import java.time.LocalDateTime;
 
@@ -65,11 +66,12 @@ public class UserDAOTest {
         User user = new User("pjtaylor");
         userDAO.insert(user);
         Style style = styleDAO.getById(5);
-        Suggestion newSuggestion = new Suggestion("deleted user entry", user, style, LocalDateTime.now());
+        LocalDateTime now = LocalDateTime.now().truncatedTo(ChronoUnit.SECONDS);
+        Suggestion newSuggestion = new Suggestion("deleted user entry", user, style, now);
         int insertedId = suggestionDAO.insert(newSuggestion);
         assertNotEquals(0, insertedId);
         Suggestion suggestion = suggestionDAO.getById(insertedId);
-        assertEquals("deleted user entry", suggestion.getSuggestion());
+        assertEquals(newSuggestion, suggestion);
         userDAO.delete(user);
         User deletedUser = userDAO.getById(user.getId());
         assertNull(deletedUser);
