@@ -89,3 +89,14 @@ Time Spent: 2 hours
 I didn't spend very much time on my indie project this week and spent most of the time working on the team project. I mostly just
 worked on perfecting my unit tests, and I'm getting SUPER close to finishing that. I will hopefully have more time to work on my
 indie project in the next few weeks, and I am feeling very confident that I will be able to finish it all up moving forward.
+
+Week 11 - 4/13/25
+Time Spent: 1 hour
+I was mainly focused on the team project this week. I adjusted my test classes a little bit to better test what happens to the user
+entity when a suggestion is deleted. I also filled out some journal entries.
+
+Week 12 - 4/20/25
+Time Spent: None
+I didn't spend any time on the indie project this week and only focused on the team project.
+
+Week 13 - 4/27/25
