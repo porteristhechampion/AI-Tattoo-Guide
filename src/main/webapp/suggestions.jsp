@@ -10,6 +10,7 @@
 <c:import url="head.jsp"/>
 <body>
 <div class="container-fluid">
+    <c:import url="header.jsp"/>
     <div class="row">
         <div class="col-md-4">
             <h2>Suggestions:</h2>
