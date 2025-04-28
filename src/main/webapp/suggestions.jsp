@@ -41,7 +41,21 @@
         </div>
 
         <div class="col-md-8">
+            <h2>Generate a Tattoo Suggestion</h2>
+            <form action="generateSuggestion" method="post">
+                <label for="promptInput" class="form-label">Enter your prompt:</label>
+                <input type="text" class="form-control" id="promptInput" name="prompt" required>
+                <button type="submit" class="btn btn-primary">Generate</button>
+            </form>
 
+            <c:if test="${not empty generatedResponse}">
+                <div class="mt-4">
+                    <h4>AI Response:</h4>
+                    <div class="alert alert-success" role="alert">
+                        ${generatedResponse}
+                    </div>
+                </div>
+            </c:if>
         </div>
     </div>
 </div>
