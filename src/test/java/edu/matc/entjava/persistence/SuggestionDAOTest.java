@@ -92,9 +92,11 @@ public class SuggestionDAOTest {
         List<Suggestion> suggestions = user.getSuggestions();
         assertEquals(2, suggestions.size());
         Suggestion suggestionDelete = suggestions.get(0);
+        Style style = suggestionDelete.getStyle();
         suggestionDAO.delete(suggestionDelete);
         assertNull(suggestionDAO.getById(suggestionDelete.getId()));
         assertNotNull(user);
+        assertNotNull(style);
     }
 
     /**
