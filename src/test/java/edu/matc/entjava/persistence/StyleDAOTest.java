@@ -42,6 +42,15 @@ public class StyleDAOTest {
     }
 
     /**
+     * Tests retrieval of all Style entities in the styles table.
+     */
+    @Test
+    void getAll() {
+        List<Style> styles = styleDAO.getAll();
+        assertEquals(11, styles.size());
+    }
+
+    /**
      * Tests updating an existing Style entity.
      */
     @Test

@@ -52,7 +52,11 @@
                 <div class="mt-4">
                     <h4>AI Response:</h4>
                     <div class="alert alert-success" role="alert">
-                        ${generatedResponse}
+                        <p>${generatedResponse}</p>
+                        <form action="insertSuggestion" method="post">
+                            <input type="hidden" name="suggestion" value="${generatedRespose}"/>
+                            <button type="submit" class="btn btn-primary">Save Suggestion</button>
+                        </form>
                     </div>
                 </div>
             </c:if>

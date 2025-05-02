@@ -28,7 +28,7 @@ public class GenerateSuggestionsServlet extends HttpServlet {
         String prompt = request.getParameter("prompt");
         String aiResponse = openAI.getAIResponse(prompt);
 
-        User user = userDAO.getById(1);
+        User user = userDAO.getById(47);
         List<Suggestion> suggestions = user.getSuggestions();
 
         request.setAttribute("generatedResponse", aiResponse);

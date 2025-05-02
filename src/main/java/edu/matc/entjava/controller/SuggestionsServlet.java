@@ -28,7 +28,7 @@ public class SuggestionsServlet extends HttpServlet {
     @Override
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-        User user = userDAO.getById(1);
+        User user = userDAO.getById(47);
         List<Suggestion> suggestions = user.getSuggestions();
 
         request.setAttribute("suggestions", suggestions);

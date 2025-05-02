@@ -2,6 +2,7 @@ package edu.matc.entjava.persistence;
 
 
 import edu.matc.entjava.entity.BaseEntity;
+import jakarta.persistence.Query;
 import jakarta.persistence.criteria.CriteriaQuery;
 import jakarta.persistence.criteria.Expression;
 import jakarta.persistence.criteria.Root;
@@ -57,6 +58,24 @@ public class TattooDAO<T extends BaseEntity> {
             logger.info(entity.toString());
         }
         return entity;
+    }
+
+    /**
+     * Returns all objects based on
+     * a given table.
+     * @return entity object list
+     */
+    public List<T> getAll() {
+        Session session = getSession();
+        HibernateCriteriaBuilder cb = session.getCriteriaBuilder();
+        CriteriaQuery<T> cq = cb.createQuery(type);
+        cq.from(type);
+
+        List<T> list = session.createQuery(cq).getResultList();
+        session.close();
+
+        logger.info(list.toString());
+        return list;
     }
 
     /**

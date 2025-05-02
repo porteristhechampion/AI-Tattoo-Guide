@@ -46,6 +46,15 @@ public class SuggestionDAOTest {
     }
 
     /**
+     * Tests retrieval of all Suggestion entities in the suggestions table.
+     */
+    @Test
+    void getAll() {
+        List<Suggestion> suggestions = suggestionDAO.getAll();
+        assertEquals(6, suggestions.size());
+    }
+
+    /**
      * Tests retrieval of all Suggestion entities associated with a specific user ID.
      */
     @Test

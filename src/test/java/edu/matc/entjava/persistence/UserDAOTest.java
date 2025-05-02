@@ -46,6 +46,15 @@ public class UserDAOTest {
     }
 
     /**
+     * Tests retrieval of all User entities in the users table.
+     */
+    @Test
+    void getAll() {
+        List<User> users = userDAO.getAll();
+        assertEquals(3, users.size());
+    }
+
+    /**
      * Tests updating an existing Suggestion entity.
      */
     @Test
