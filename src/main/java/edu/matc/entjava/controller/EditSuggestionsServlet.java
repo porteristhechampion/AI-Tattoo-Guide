@@ -1,0 +1,51 @@
+package edu.matc.entjava.controller;
+
+import edu.matc.entjava.entity.Style;
+import edu.matc.entjava.entity.Suggestion;
+import edu.matc.entjava.persistence.TattooDAO;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
+import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
+import java.util.List;
+
+@WebServlet(
+        urlPatterns = {"/editSuggestion"}
+)
+
+public class EditSuggestionsServlet extends HttpServlet {
+
+    private static final Logger logger = LogManager.getLogger(EditSuggestionsServlet.class);
+
+    private TattooDAO<Suggestion> suggestionDAO;
+    private TattooDAO<Style> styleDAO;
+
+    @Override
+    public void init() {
+        suggestionDAO = new TattooDAO<>(Suggestion.class);
+        styleDAO = new TattooDAO<>(Style.class);
+    }
+
+    @Override
+    public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+        int suggestionId = Integer.parseInt(request.getParameter("suggestionEdit"));
+
+        Suggestion suggestion = suggestionDAO.getById(suggestionId);
+        List<Style> styles = styleDAO.getAll();
+
+        logger.debug(suggestion);
+
+        request.setAttribute("suggestion", suggestion);
+        request.setAttribute("styles", styles);
+
+        RequestDispatcher rd = request.getRequestDispatcher("edit.jsp");
+        rd.forward(request, response);
+    }
+}

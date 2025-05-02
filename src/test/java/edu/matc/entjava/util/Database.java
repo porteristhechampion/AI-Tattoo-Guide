@@ -1,6 +1,5 @@
 package edu.matc.entjava.util;
 
-import edu.matc.entjava.controller.OpenAI;
 import edu.matc.entjava.persistence.PropertiesLoader;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;

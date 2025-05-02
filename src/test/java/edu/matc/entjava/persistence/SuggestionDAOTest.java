@@ -46,11 +46,23 @@ public class SuggestionDAOTest {
     }
 
     /**
+     * Tests retrieval of all Suggestion entities in the suggestions table.
+     */
+    @Test
+    void getAll() {
+        List<Suggestion> suggestions = suggestionDAO.getAll();
+        assertNotNull(suggestions);
+        assertTrue(suggestions.size() > 0);
+    }
+
+    /**
      * Tests retrieval of all Suggestion entities associated with a specific user ID.
      */
     @Test
     void getAllByUser() {
-        List<Suggestion> suggestions = suggestionDAO.getAllByID(1);
+        User user = userDAO.getById(1);
+        List<Suggestion> suggestions = user.getSuggestions();
+        assertNotNull(suggestions);
         assertEquals(4, suggestions.size());
     }
 
@@ -85,14 +97,16 @@ public class SuggestionDAOTest {
      * Tests deleting a Suggestion entity.
      */
     @Test
-    void delete() {
-        List<Suggestion> suggestions = suggestionDAO.getAllByID(2);
-        assertEquals(1, suggestions.size());
+    void deleteSuggestion() {
+        User user = userDAO.getById(2);
+        List<Suggestion> suggestions = user.getSuggestions();
+        assertEquals(2, suggestions.size());
         Suggestion suggestionDelete = suggestions.get(0);
+        Style style = suggestionDelete.getStyle();
         suggestionDAO.delete(suggestionDelete);
         assertNull(suggestionDAO.getById(suggestionDelete.getId()));
-        User user = userDAO.getById(2);
         assertNotNull(user);
+        assertNotNull(style);
     }
 
     /**

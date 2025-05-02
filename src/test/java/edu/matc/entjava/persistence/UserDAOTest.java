@@ -46,6 +46,16 @@ public class UserDAOTest {
     }
 
     /**
+     * Tests retrieval of all User entities in the users table.
+     */
+    @Test
+    void getAll() {
+        List<User> users = userDAO.getAll();
+        assertNotNull(users);
+        assertTrue(users.size() > 0);
+    }
+
+    /**
      * Tests updating an existing Suggestion entity.
      */
     @Test
@@ -75,9 +85,8 @@ public class UserDAOTest {
         userDAO.delete(user);
         User deletedUser = userDAO.getById(user.getId());
         assertNull(deletedUser);
-        List<Suggestion> suggestions = suggestionDAO.getAllByID(user.getId());
-        assertNull(suggestions);
+        List<Suggestion> suggestions = user.getSuggestions();
+        assertEquals(0, suggestions.size());
         assertNotNull(user);
     }
-
 }
