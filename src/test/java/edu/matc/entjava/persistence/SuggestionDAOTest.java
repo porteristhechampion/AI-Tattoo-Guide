@@ -50,7 +50,9 @@ public class SuggestionDAOTest {
      */
     @Test
     void getAllByUser() {
-        List<Suggestion> suggestions = suggestionDAO.getAllByID(1);
+        User user = userDAO.getById(1);
+        List<Suggestion> suggestions = user.getSuggestions();
+        assertNotNull(suggestions);
         assertEquals(4, suggestions.size());
     }
 
@@ -86,12 +88,12 @@ public class SuggestionDAOTest {
      */
     @Test
     void delete() {
-        List<Suggestion> suggestions = suggestionDAO.getAllByID(2);
+        User user = userDAO.getById(2);
+        List<Suggestion> suggestions = user.getSuggestions();
         assertEquals(1, suggestions.size());
         Suggestion suggestionDelete = suggestions.get(0);
         suggestionDAO.delete(suggestionDelete);
         assertNull(suggestionDAO.getById(suggestionDelete.getId()));
-        User user = userDAO.getById(2);
         assertNotNull(user);
     }
 

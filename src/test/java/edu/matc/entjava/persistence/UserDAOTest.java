@@ -75,8 +75,8 @@ public class UserDAOTest {
         userDAO.delete(user);
         User deletedUser = userDAO.getById(user.getId());
         assertNull(deletedUser);
-        List<Suggestion> suggestions = suggestionDAO.getAllByID(user.getId());
-        assertNull(suggestions);
+        List<Suggestion> suggestions = user.getSuggestions();
+        assertEquals(0, suggestions.size());
         assertNotNull(user);
     }
 

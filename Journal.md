@@ -100,3 +100,4 @@ Time Spent: None
 I didn't spend any time on the indie project this week and only focused on the team project.
 
 Week 13 - 4/27/25
+Time Spent: 3 hours

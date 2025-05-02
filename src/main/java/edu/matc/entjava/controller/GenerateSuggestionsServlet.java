@@ -1,6 +1,7 @@
 package edu.matc.entjava.controller;
 
 import edu.matc.entjava.entity.Suggestion;
+import edu.matc.entjava.entity.User;
 import edu.matc.entjava.persistence.TattooDAO;
 
 import javax.servlet.RequestDispatcher;
@@ -17,17 +18,18 @@ import java.util.List;
 )
 
 public class GenerateSuggestionsServlet extends HttpServlet {
-    private TattooDAO<Suggestion> suggestionDAO;
+    private TattooDAO<User> userDAO;
 
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         OpenAI openAI = new OpenAI();
-        suggestionDAO = new TattooDAO<>(Suggestion.class);
+        userDAO = new TattooDAO<>(User.class);
 
         String prompt = request.getParameter("prompt");
         String aiResponse = openAI.getAIResponse(prompt);
 
-        List<Suggestion> suggestions = suggestionDAO.getAllByID(1);
+        User user = userDAO.getById(1);
+        List<Suggestion> suggestions = user.getSuggestions();
 
         request.setAttribute("generatedResponse", aiResponse);
         request.setAttribute("suggestions", suggestions);

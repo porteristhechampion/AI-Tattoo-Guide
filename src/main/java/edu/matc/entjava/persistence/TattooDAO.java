@@ -60,26 +60,6 @@ public class TattooDAO<T extends BaseEntity> {
     }
 
     /**
-     * Returns all suggestions based on a user id.
-     * @param id user id
-     * @return list of all suggestions
-     */
-    public List<T> getAllByID(int id) {
-        Session session = getSession();
-
-        HibernateCriteriaBuilder builder = session.getCriteriaBuilder();
-        CriteriaQuery<T> criteria = builder.createQuery(type);
-        Root<T> root = criteria.from(type);
-
-        criteria.where(builder.equal(root.get("user").get("id"), id));
-        List<T> list = session.createQuery(criteria).getResultList();
-
-        logger.debug(list.toString());
-        session.close();
-        return list.isEmpty() ? null : list;
-    }
-
-    /**
      * Returns all values based on a given property.
      * @param property column
      * @param value property like
