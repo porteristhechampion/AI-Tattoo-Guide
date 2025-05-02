@@ -27,7 +27,14 @@
                     <c:when test="${not empty suggestions}">
                         <c:forEach var="suggestion" items="${suggestions}">
                             <tr>
-                                <td>${suggestion.suggestion}</td>
+                                <td>
+                                    ${suggestion.suggestion}
+                                    <br>
+                                    <form action="deleteSuggestion" method="post">
+                                        <input type="hidden" name="suggestionDelete" value="${suggestion.id}"/>
+                                        <button type="submit" class="btn btn-danger">Delete</button>
+                                    </form>
+                                </td>
                                 <td>${suggestion.style.style}</td>
                             </tr>
                         </c:forEach>
