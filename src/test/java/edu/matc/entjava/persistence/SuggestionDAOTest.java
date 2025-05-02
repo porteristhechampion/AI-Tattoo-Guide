@@ -87,10 +87,10 @@ public class SuggestionDAOTest {
      * Tests deleting a Suggestion entity.
      */
     @Test
-    void delete() {
+    void deleteSuggestion() {
         User user = userDAO.getById(2);
         List<Suggestion> suggestions = user.getSuggestions();
-        assertEquals(1, suggestions.size());
+        assertEquals(2, suggestions.size());
         Suggestion suggestionDelete = suggestions.get(0);
         suggestionDAO.delete(suggestionDelete);
         assertNull(suggestionDAO.getById(suggestionDelete.getId()));

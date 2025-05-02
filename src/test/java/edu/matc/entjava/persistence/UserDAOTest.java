@@ -79,5 +79,4 @@ public class UserDAOTest {
         assertEquals(0, suggestions.size());
         assertNotNull(user);
     }
-
 }
