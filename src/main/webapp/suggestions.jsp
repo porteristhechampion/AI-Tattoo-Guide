@@ -28,8 +28,12 @@
                         <c:forEach var="suggestion" items="${suggestions}">
                             <tr>
                                 <td>
-                                    ${suggestion.suggestion}
+                                        ${suggestion.suggestion}
                                     <br>
+                                    <form action="editSuggestion" method="post">
+                                        <input type="hidden" name="suggestionEdit" value="${suggestion.id}"/>
+                                        <button type="submit" class="btn btn-primary">Edit</button>
+                                    </form>
                                     <form action="deleteSuggestion" method="post">
                                         <input type="hidden" name="suggestionDelete" value="${suggestion.id}"/>
                                         <button type="submit" class="btn btn-danger">Delete</button>

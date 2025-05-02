@@ -2,8 +2,9 @@ package edu.matc.entjava.controller;
 
 import edu.matc.entjava.entity.Style;
 import edu.matc.entjava.entity.Suggestion;
-import edu.matc.entjava.entity.User;
 import edu.matc.entjava.persistence.TattooDAO;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -15,37 +16,36 @@ import java.io.IOException;
 import java.util.List;
 
 @WebServlet(
-        urlPatterns = {"/generateSuggestion"}
+        urlPatterns = {"/editSuggestion"}
 )
 
-public class GenerateSuggestionsServlet extends HttpServlet {
-    private TattooDAO<User> userDAO;
+public class EditSuggestionsServlet extends HttpServlet {
+
+    private static final Logger logger = LogManager.getLogger(EditSuggestionsServlet.class);
+
+    private TattooDAO<Suggestion> suggestionDAO;
     private TattooDAO<Style> styleDAO;
 
     @Override
     public void init() {
-        userDAO = new TattooDAO<>(User.class);
+        suggestionDAO = new TattooDAO<>(Suggestion.class);
         styleDAO = new TattooDAO<>(Style.class);
     }
 
     @Override
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-        OpenAI openAI = new OpenAI();
+        int suggestionId = Integer.parseInt(request.getParameter("suggestionEdit"));
 
-        String prompt = request.getParameter("prompt");
-        String aiResponse = openAI.getAIResponse(prompt);
-
-        User user = userDAO.getById(47);
-        List<Suggestion> suggestions = user.getSuggestions();
+        Suggestion suggestion = suggestionDAO.getById(suggestionId);
         List<Style> styles = styleDAO.getAll();
 
-        request.setAttribute("generatedResponse", aiResponse);
-        request.setAttribute("suggestions", suggestions);
+        logger.debug(suggestion);
+
+        request.setAttribute("suggestion", suggestion);
         request.setAttribute("styles", styles);
 
-        RequestDispatcher rd = request.getRequestDispatcher("suggestions.jsp");
+        RequestDispatcher rd = request.getRequestDispatcher("edit.jsp");
         rd.forward(request, response);
     }
-
 }
