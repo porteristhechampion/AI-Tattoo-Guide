@@ -1,5 +1,6 @@
 package edu.matc.entjava.controller;
 
+import edu.matc.entjava.entity.Style;
 import edu.matc.entjava.entity.Suggestion;
 import edu.matc.entjava.entity.User;
 import edu.matc.entjava.persistence.TattooDAO;
@@ -21,9 +22,7 @@ public class SuggestionsServlet extends HttpServlet {
     private TattooDAO<User> userDAO;
 
     @Override
-    public void init() {
-        userDAO = new TattooDAO<>(User.class);
-    }
+    public void init() {userDAO = new TattooDAO<>(User.class);}
 
     @Override
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

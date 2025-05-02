@@ -19,6 +19,7 @@
                 <thead>
                 <tr>
                     <th>Saved Suggestions</th>
+                    <th>Style</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -27,6 +28,7 @@
                         <c:forEach var="suggestion" items="${suggestions}">
                             <tr>
                                 <td>${suggestion.suggestion}</td>
+                                <td>${suggestion.style.style}</td>
                             </tr>
                         </c:forEach>
                     </c:when>
@@ -54,7 +56,19 @@
                     <div class="alert alert-success" role="alert">
                         <p>${generatedResponse}</p>
                         <form action="insertSuggestion" method="post">
-                            <input type="hidden" name="suggestion" value="${generatedRespose}"/>
+                            <input type="hidden" name="suggestion" value="${generatedResponse}"/>
+
+                            <div class="form-group mt-2">
+                                <label for="styleSelect">Choose a style:</label>
+                                <select class="form-control" id="styleSelect" name="style" required>
+                                    <option value="" disabled selected>Select a style</option>
+
+                                    <c:forEach var="style" items="${styles}">
+                                        <option value="${style.id}">${style.style}</option>
+                                    </c:forEach>
+                                </select>
+                            </div>
+
                             <button type="submit" class="btn btn-primary">Save Suggestion</button>
                         </form>
                     </div>
