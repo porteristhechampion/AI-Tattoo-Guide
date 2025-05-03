@@ -100,4 +100,9 @@ Time Spent: None
 I didn't spend any time on the indie project this week and only focused on the team project.
 
 Week 13 - 4/27/25
-Time Spent: 3 hours
+Time Spent: 9 hours
+So far this week I have been working on adding my first version of my jsps. I finished all of that and the application now has all the
+finished features for the user minus the login and register features since I haven't deployed to AWS yet. I would like to get the admin
+feature finished, and then I will be doing the open-source challenge on Sunday, hopefully. I also have an offline code review with Alison
+which will probably take place tomorrow. I'm feeling very confident with where I am at right now since I have roughly a week and a half to
+two weeks to get the AWS and cognito stuff setup, so I'm feeling great.

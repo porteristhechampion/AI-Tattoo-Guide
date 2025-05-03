@@ -1,6 +1,5 @@
 package edu.matc.entjava.controller;
 
-import edu.matc.entjava.entity.Suggestion;
 import edu.matc.entjava.entity.User;
 import edu.matc.entjava.persistence.TattooDAO;
 
@@ -14,10 +13,10 @@ import java.io.IOException;
 import java.util.List;
 
 @WebServlet(
-        urlPatterns = {"/suggestions"}
+        urlPatterns = {"/users"}
 )
 
-public class SuggestionsServlet extends HttpServlet {
+public class UsersServlet extends HttpServlet {
     private TattooDAO<User> userDAO;
 
     @Override
@@ -26,12 +25,11 @@ public class SuggestionsServlet extends HttpServlet {
     @Override
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-        User user = userDAO.getById(47);
-        List<Suggestion> suggestions = user.getSuggestions();
+        List<User> users = userDAO.getAll();
 
-        request.setAttribute("suggestions", suggestions);
+        request.setAttribute("users", users);
 
-        RequestDispatcher rd = request.getRequestDispatcher("suggestions.jsp");
+        RequestDispatcher rd = request.getRequestDispatcher("admin.jsp");
         rd.forward(request, response);
     }
 }
