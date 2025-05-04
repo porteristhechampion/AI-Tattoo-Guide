@@ -100,9 +100,12 @@ Time Spent: None
 I didn't spend any time on the indie project this week and only focused on the team project.
 
 Week 13 - 4/27/25
-Time Spent: 9 hours
+Time Spent: 11 hours
 So far this week I have been working on adding my first version of my jsps. I finished all of that and the application now has all the
 finished features for the user minus the login and register features since I haven't deployed to AWS yet. I would like to get the admin
 feature finished, and then I will be doing the open-source challenge on Sunday, hopefully. I also have an offline code review with Alison
 which will probably take place tomorrow. I'm feeling very confident with where I am at right now since I have roughly a week and a half to
-two weeks to get the AWS and cognito stuff setup, so I'm feeling great.
+two weeks to get the AWS and cognito stuff setup, so I'm feeling great. I also added the admin page where admins can view a list of the 
+users and delete a user if needed which will in turn delete all the suggestions associated with that user. I think a nice feature to have
+would be to search for a specific user using a username but I don't think I will get to that in this class and for now ctrl + f will have
+to do.
