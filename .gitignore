@@ -50,4 +50,4 @@ fabric.properties
 
 # Sensitive Files
 /src/main/resources/api.properties
-/src/main/resources/database.properties
+/src/test/resources/database.properties

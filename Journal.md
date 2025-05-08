@@ -109,3 +109,5 @@ two weeks to get the AWS and cognito stuff setup, so I'm feeling great. I also a
 users and delete a user if needed which will in turn delete all the suggestions associated with that user. I think a nice feature to have
 would be to search for a specific user using a username but I don't think I will get to that in this class and for now ctrl + f will have
 to do.
+
+Week 14 - 5/5/25
