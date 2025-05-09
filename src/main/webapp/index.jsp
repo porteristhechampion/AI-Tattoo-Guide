@@ -7,7 +7,7 @@
             <c:import url="header.jsp"/>
             <div class="container text-center m-5">
                 <h2>Welcome to the AI tattoo assistant!</h2>
-                <h5>This is just the beginning, and only I have access to it!!!</h5>
+                <h5>This is just the beginning!</h5>
                 <a href="suggestions" class="btn btn-primary">View Suggestions</a>
             </div>
         </div>
