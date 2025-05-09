@@ -89,10 +89,4 @@ public class UserDAOTest {
         assertEquals(0, suggestions.size());
         assertNotNull(user);
     }
-
-//    @Test
-//    void insertTestUser() {
-//        User user = new User("testMan");
-//        userDAO.insert(user);
-//    }
 }

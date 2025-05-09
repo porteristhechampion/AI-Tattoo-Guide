@@ -17,12 +17,31 @@ import java.util.List;
         urlPatterns = {"/suggestions"}
 )
 
+/**
+ * This servlet handles displaying the users suggestions
+ * on the suggestions list page.
+ *
+ * @author ptaylor
+ */
 public class SuggestionsServlet extends HttpServlet {
     private TattooDAO<User> userDAO;
 
+    /**
+     * This method instantiates an instance of the DAO
+     * once the servlet is first loaded.
+     */
     @Override
     public void init() {userDAO = new TattooDAO<>(User.class);}
 
+    /**
+     * This method handles the GET request to display the users suggestions, and sends them to the
+     * suggestions list page.
+     *
+     * @param request request object
+     * @param response response object
+     * @throws ServletException servlet exception
+     * @throws IOException io exception
+     */
     @Override
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 

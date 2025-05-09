@@ -7,7 +7,6 @@ import edu.matc.entjava.persistence.TattooDAO;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -19,6 +18,13 @@ import java.time.LocalDateTime;
         urlPatterns = {"/insertSuggestion"}
 )
 
+/**
+ * This servlet handles adding a new tattoo suggestion to the
+ * database upon a POST request, and redirects back to the
+ * suggestion list page.
+ *
+ * @author ptaylor
+ */
 public class InsertSuggestionServlet extends HttpServlet {
 
     private static final Logger logger = LogManager.getLogger(InsertSuggestionServlet.class);
@@ -27,6 +33,10 @@ public class InsertSuggestionServlet extends HttpServlet {
     TattooDAO<Suggestion> suggestionDAO;
     TattooDAO<Style> styleDAO;
 
+    /**
+     * This method instantiates instances of the DAO
+     * once the servlet is first loaded.
+     */
     @Override
     public void init() {
         userDAO = new TattooDAO<>(User.class);
@@ -34,8 +44,17 @@ public class InsertSuggestionServlet extends HttpServlet {
         styleDAO = new TattooDAO<>(Style.class);
     }
 
+    /**
+     * This method handles the POST request to add a suggestion, retrieves the user ID,
+     * and style ID from the request, fetches the corresponding user, and style, adds it
+     * to the database, and redirects back to the suggestion list page.
+     *
+     * @param request request object
+     * @param response response object
+     * @throws IOException io exception
+     */
     @Override
-    public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
 
         String suggestionText = request.getParameter("suggestion");
         int styleId = Integer.parseInt(request.getParameter("style"));

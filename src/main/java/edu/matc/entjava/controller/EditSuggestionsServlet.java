@@ -19,6 +19,11 @@ import java.util.List;
         urlPatterns = {"/editSuggestion"}
 )
 
+/**
+ * This servlet handles setting up the form for updating
+ * a tattoo suggestion in the database upon a POST request,
+ * and redirects back to the suggestion list page.
+ */
 public class EditSuggestionsServlet extends HttpServlet {
 
     private static final Logger logger = LogManager.getLogger(EditSuggestionsServlet.class);
@@ -26,12 +31,26 @@ public class EditSuggestionsServlet extends HttpServlet {
     private TattooDAO<Suggestion> suggestionDAO;
     private TattooDAO<Style> styleDAO;
 
+    /**
+     * This method instantiates instances of the DAO
+     * once the servlet is first loaded.
+     */
     @Override
     public void init() {
         suggestionDAO = new TattooDAO<>(Suggestion.class);
         styleDAO = new TattooDAO<>(Style.class);
     }
 
+    /**
+     * This method handles the POST request to update a suggestion, retrieves the suggestion ID from the request,
+     * fetches the corresponding suggestion from the database, and sends it along with a list of styles to the
+     * edit page.
+     *
+     * @param request request object
+     * @param response response object
+     * @throws ServletException servlet exception
+     * @throws IOException io exception
+     */
     @Override
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 

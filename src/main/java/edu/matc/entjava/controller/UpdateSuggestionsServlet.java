@@ -17,6 +17,13 @@ import java.io.IOException;
         urlPatterns = "/updateSuggestion"
 )
 
+/**
+ * This servlet handles updating a tattoo suggestion upon
+ * a POST request, and redirects back to the suggestions
+ * list page.
+ *
+ * @author ptaylor
+ */
 public class UpdateSuggestionsServlet extends HttpServlet {
 
     private static final Logger logger = LogManager.getLogger(EditSuggestionsServlet.class);
@@ -24,14 +31,27 @@ public class UpdateSuggestionsServlet extends HttpServlet {
     TattooDAO<Suggestion> suggestionDAO;
     TattooDAO<Style> styleDAO;
 
+    /**
+     * This method instantiates instances of the DAO
+     * once the servlet is first loaded.
+     */
     @Override
     public void init() {
         suggestionDAO = new TattooDAO<>(Suggestion.class);
         styleDAO = new TattooDAO<>(Style.class);
     }
 
+    /**
+     * This method handles the POST request to update a suggestion, retrieves the suggestion ID from
+     * the request, fetches the corresponding suggestion from the database, updates it in the database,
+     * and redirects back to the suggestion list page.
+     *
+     * @param request request object
+     * @param response response object
+     * @throws IOException io exception
+     */
     @Override
-    public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
 
         int suggestionId = Integer.parseInt(request.getParameter("suggestionId"));
         String suggestionText = request.getParameter("suggestion");
