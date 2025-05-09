@@ -50,4 +50,7 @@ fabric.properties
 
 # Sensitive Files
 /src/main/resources/api.properties
+/src/main/resources/log4j2.properties
+/src/main/resources/hibernate.cfg.xml
 /src/test/resources/database.properties
+/src/test/resources/hibernate.cfg.xml
