@@ -40,7 +40,7 @@ public class InsertSuggestionServlet extends HttpServlet {
         String suggestionText = request.getParameter("suggestion");
         int styleId = Integer.parseInt(request.getParameter("style"));
 
-        User user = userDAO.getById(47);
+        User user = userDAO.getById(3);
         Style style = styleDAO.getById(styleId);
 
         Suggestion newSuggestion = new Suggestion(suggestionText, user, style, LocalDateTime.now());

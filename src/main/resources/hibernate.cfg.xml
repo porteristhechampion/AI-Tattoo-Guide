@@ -1,6 +1,6 @@
 <hibernate-configuration>
     <session-factory>
-        <property name="connection.url">jdbc:mysql://localhost:3306/tattootest</property>
+        <property name="connection.url">jdbc:mysql://awseb-e-uagyq46dpf-stack-awsebrdsdatabase-eplmatbnw7lj.c3uu2o062qfn.us-east-2.rds.amazonaws.com:3306/tattoo</property>
         <property name="connection.driver_class">com.mysql.cj.jdbc.Driver</property>
 
         <property name="connection.username">ptaylor</property>
@@ -11,7 +11,7 @@
         <property name="hibernate.c3p0.timeout">300</property>
         <property name="hibernate.c3p0.max_statements">50</property>
         <property name="hibernate.c3p0.idle_test_period">3000</property>
-        <propert name="dialect">org.hibernate.dialect.MySQLDialect</propert>
+        <property name="dialect">org.hibernate.dialect.MySQLDialect</property>
 
         <mapping class="edu.matc.entjava.entity.Suggestion"/>
         <mapping class="edu.matc.entjava.entity.User"/>
