@@ -1,4 +1,4 @@
-package edu.matc.entjava.entity;
+package com.ptaylor.tattoosuggestions.entity;
 
 /**
  * This class serves to ensure that each entity class

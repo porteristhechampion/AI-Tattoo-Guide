@@ -13,9 +13,9 @@
         <property name="hibernate.c3p0.idle_test_period">3000</property>
         <property name="dialect">org.hibernate.dialect.MySQLDialect</property>
 
-        <mapping class="edu.matc.entjava.entity.Suggestion"/>
-        <mapping class="edu.matc.entjava.entity.User"/>
-        <mapping class="edu.matc.entjava.entity.Style"/>
+        <mapping class="com.ptaylor.tattoosuggestions.entity.Suggestion"/>
+        <mapping class="com.ptaylor.tattoosuggestions.entity.User"/>
+        <mapping class="com.ptaylor.tattoosuggestions.entity.Style"/>
 
     </session-factory>
 

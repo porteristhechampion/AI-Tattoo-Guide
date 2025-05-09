@@ -1,4 +1,4 @@
-package edu.matc.entjava.persistence;
+package com.ptaylor.tattoosuggestions.persistence;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;

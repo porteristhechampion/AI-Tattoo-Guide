@@ -1,4 +1,4 @@
-package edu.matc.entjava.persistence;
+package com.ptaylor.tattoosuggestions.persistence;
 
 import org.junit.Test;
 import static org.junit.jupiter.api.Assertions.*;

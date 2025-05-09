@@ -1,8 +1,7 @@
-package edu.matc.entjava.persistence;
+package com.ptaylor.tattoosuggestions.persistence;
 
 
-import edu.matc.entjava.entity.BaseEntity;
-import jakarta.persistence.Query;
+import com.ptaylor.tattoosuggestions.entity.BaseEntity;
 import jakarta.persistence.criteria.CriteriaQuery;
 import jakarta.persistence.criteria.Expression;
 import jakarta.persistence.criteria.Root;

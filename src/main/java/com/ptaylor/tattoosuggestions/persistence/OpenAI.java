@@ -1,4 +1,4 @@
-package edu.matc.entjava.persistence;
+package com.ptaylor.tattoosuggestions.persistence;
 
 import java.util.Properties;
 

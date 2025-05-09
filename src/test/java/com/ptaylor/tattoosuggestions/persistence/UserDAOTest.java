@@ -1,9 +1,9 @@
-package edu.matc.entjava.persistence;
+package com.ptaylor.tattoosuggestions.persistence;
 
-import edu.matc.entjava.entity.Style;
-import edu.matc.entjava.entity.Suggestion;
-import edu.matc.entjava.entity.User;
-import edu.matc.entjava.util.Database;
+import com.ptaylor.tattoosuggestions.entity.Style;
+import com.ptaylor.tattoosuggestions.entity.Suggestion;
+import com.ptaylor.tattoosuggestions.entity.User;
+import com.ptaylor.tattoosuggestions.util.Database;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 

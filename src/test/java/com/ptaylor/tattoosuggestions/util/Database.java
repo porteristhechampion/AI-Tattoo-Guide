@@ -1,6 +1,6 @@
-package edu.matc.entjava.util;
+package com.ptaylor.tattoosuggestions.util;
 
-import edu.matc.entjava.persistence.PropertiesLoader;
+import com.ptaylor.tattoosuggestions.persistence.PropertiesLoader;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 

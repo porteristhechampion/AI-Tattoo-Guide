@@ -42,19 +42,19 @@
 - [X] Implement **suggestion saving functionality**
 - [X] Implement **suggestion editing functionality**
 - [X] Allow users to **delete their saved suggestions**
-- [ ] Implement **style selection (dropdown of styles)**
+- [X] Implement **style selection (dropdown of styles)**
 - [ ] Allow users to ***add custom styles***
 - [X] Weekly reflection
 
 ---
 
 ## Week 7: Backend Implementation - Authentication & User Management
-- [ ] Deploy to AWS
+- [X] Deploy to AWS
 - [ ] Implement **user authentication** using cognito
     - [ ] User **registration, login, logout**
     - [ ] Role-based access (user, admin)
 - [ ] Create **JSP pages for login, registration, dashboard**
-- [ ] Weekly reflection
+- [X] Weekly reflection
 
 ---
 
@@ -64,45 +64,44 @@
     - [X] At least **one DAO with full CRUD implemented using Hibernate**
     - [X] DAO is **fully unit tested**
     - [X] Log4J **replaces all System.out.println() statements**
-- [ ] **Set up AWS RDS instance for the database**
-- [ ] **Deploy project to AWS**
-- [ ] Update journal
+- [X] **Set up AWS RDS instance for the database**
+- [X] **Deploy project to AWS**
+- [X] Update journal
 
 ---
 
 ## Week 8: Admin Dashboard & Security Enhancements
 - [ ] Implement **admin authentication**
-- [ ] Create **Admin JSP dashboard** to manage users
-- [ ] Implement **admin ability to delete users & their associated data**
+- [X] Create **Admin JSP dashboard** to manage users
+- [X] Implement **admin ability to delete users & their associated data**
 - [ ] Add **role-based access** to restrict admin pages
 - [ ] Improve **error handling and form validation**
-- [ ] Weekly reflection
+- [X] Weekly reflection
 
 ---
 
 ## Week 9: Checkpoint 3 – Deployed App & Authentication Complete
 - [ ] **Verify Checkpoint 3 requirements:**
     - [ ] **Authentication implemented** (user/admin)
-    - [ ] **At least one JSP page displaying database data**
-    - [ ] **AWS deployment successful & accessible**
-- [ ] Add **AWS link** to indie project list
-- [ ] Weekly reflection
+    - [X] **At least one JSP page displaying database data**
+    - [X] **AWS deployment successful & accessible**
+- [X] Add **AWS link** to indie project list
+- [X] Weekly reflection
 
 ---
 
 ## Week 10: User Experience & Feedback Collection
 - [ ] Conduct **user testing** (ask people to test app, note issues)
 - [ ] Improve **UI based on user feedback**
-- [ ] Add **client-side validation** to prevent bad inputs
-- [ ] Optimize **database queries** for performance
-- [ ] Weekly reflection
+- [X] Optimize **database queries** for performance
+- [X] Weekly reflection
 
 ---
 
 ## Week 11-12: Advanced Features & Refinements
 - [ ] Implement **API caching** (to prevent excessive API calls)
 - [ ] Optimize **page loading times**
-- [ ] Weekly reflection
+- [X] Weekly reflection
 
 ---
 
@@ -110,20 +109,20 @@
 - [ ] Perform **security audit** (check for vulnerabilities)
 - [ ] Implement **password reset functionality**
 - [ ] Improve **database indexing** for faster queries
-- [ ] Weekly reflection
+- [X] Weekly reflection
 
 ---
 
 ## Week 14: Pre-Final Review & Final Testing
 - [ ] Conduct **full code review**
-- [ ] Write **final unit tests**
+- [X] Write **final unit tests**
 - [ ] Prepare **final documentation**
-- [ ] Weekly reflection
+- [X] Weekly reflection
 
 ---
 
 ## Week 15: Final Presentation & Documentation
-- [ ] Implement **feedback from review**
+- [X] Implement **feedback from review**
 - [ ] **Prepare final presentation**
 - [ ] Create **demo video** and add link to `README.md`
 - [ ] Finalize **all documentation**

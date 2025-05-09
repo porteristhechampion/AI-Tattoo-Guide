@@ -1,9 +1,9 @@
-package edu.matc.entjava.controller;
+package com.ptaylor.tattoosuggestions.controller;
 
-import edu.matc.entjava.entity.Style;
-import edu.matc.entjava.entity.Suggestion;
-import edu.matc.entjava.entity.User;
-import edu.matc.entjava.persistence.TattooDAO;
+import com.ptaylor.tattoosuggestions.entity.Style;
+import com.ptaylor.tattoosuggestions.entity.Suggestion;
+import com.ptaylor.tattoosuggestions.entity.User;
+import com.ptaylor.tattoosuggestions.persistence.TattooDAO;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 

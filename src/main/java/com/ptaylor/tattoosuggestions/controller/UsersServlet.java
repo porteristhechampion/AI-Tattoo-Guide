@@ -1,7 +1,7 @@
-package edu.matc.entjava.controller;
+package com.ptaylor.tattoosuggestions.controller;
 
-import edu.matc.entjava.entity.User;
-import edu.matc.entjava.persistence.TattooDAO;
+import com.ptaylor.tattoosuggestions.entity.User;
+import com.ptaylor.tattoosuggestions.persistence.TattooDAO;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;

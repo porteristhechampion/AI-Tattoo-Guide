@@ -1,10 +1,10 @@
-package edu.matc.entjava.controller;
+package com.ptaylor.tattoosuggestions.controller;
 
-import edu.matc.entjava.entity.Style;
-import edu.matc.entjava.entity.Suggestion;
-import edu.matc.entjava.entity.User;
-import edu.matc.entjava.persistence.OpenAI;
-import edu.matc.entjava.persistence.TattooDAO;
+import com.ptaylor.tattoosuggestions.entity.Style;
+import com.ptaylor.tattoosuggestions.entity.Suggestion;
+import com.ptaylor.tattoosuggestions.entity.User;
+import com.ptaylor.tattoosuggestions.persistence.OpenAI;
+import com.ptaylor.tattoosuggestions.persistence.TattooDAO;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;

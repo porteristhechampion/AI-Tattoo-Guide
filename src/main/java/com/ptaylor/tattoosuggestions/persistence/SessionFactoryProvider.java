@@ -1,4 +1,4 @@
-package edu.matc.entjava.persistence;
+package com.ptaylor.tattoosuggestions.persistence;
 
 import org.hibernate.SessionFactory;
 import org.hibernate.boot.Metadata;

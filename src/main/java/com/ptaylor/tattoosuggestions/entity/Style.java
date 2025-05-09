@@ -1,4 +1,4 @@
-package edu.matc.entjava.entity;
+package com.ptaylor.tattoosuggestions.entity;
 
 import org.hibernate.annotations.GenericGenerator;
 

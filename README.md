@@ -12,6 +12,39 @@ struggle like I do when deciding to get a tattoo since it can help give ideas wh
 suggestions or tweaks to a design you already like. My end goal is to get a tatoo that my program suggested since I think that is a cool way to incorporate some
 story and meaning behind a simple tattoo.
 
+### Project Technologies/Techniques
+
+- **Security / Authentication**
+    - AWS Cognito
+
+- **Database**
+    - MySQL 8.x
+
+- **ORM Framework**
+    - Hibernate 6.x
+
+- **Dependency Management**
+    - Maven
+
+- **Web Services**
+    - Consumes OpenAI API (model: `gpt-3.5-turbo`)
+
+- **CSS Framework**
+    - Bootstrap
+
+- **Logging**
+    - Log4J2
+
+- **Hosting / Deployment**
+    - AWS (EC2 or Elastic Beanstalk, etc.)
+
+- **Unit Testing**
+    - JUnit
+
+- **IDE**
+    - IntelliJ IDEA
+
+
 ### Main Features
 
   - Ability to register and sign in to a user account
