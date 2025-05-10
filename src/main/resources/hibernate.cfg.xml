@@ -1,6 +1,6 @@
 <hibernate-configuration>
     <session-factory>
-        <property name="connection.url">jdbc:mysql://awseb-e-uagyq46dpf-stack-awsebrdsdatabase-eplmatbnw7lj.c3uu2o062qfn.us-east-2.rds.amazonaws.com:3306/tattoo</property>
+        <property name="connection.url">jdbc:mysql://awseb-e-4jf2vh9pp7-stack-awsebrdsdatabase-osx3armkomdw.c3uu2o062qfn.us-east-2.rds.amazonaws.com:3306/tattoo</property>
         <property name="connection.driver_class">com.mysql.cj.jdbc.Driver</property>
 
         <property name="connection.username">ptaylor</property>
