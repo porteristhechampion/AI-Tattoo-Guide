@@ -10,7 +10,7 @@
                 <h5>This is just the beginning!</h5>
                 <c:choose>
                     <c:when test="${empty username}">
-                        <a href="logIn" class="btn btn-primary">Log in</a>
+                        <a href="login" class="btn btn-primary">Log in</a>
                     </c:when>
                     <c:otherwise>
                         <p>Welcome ${username}</p>

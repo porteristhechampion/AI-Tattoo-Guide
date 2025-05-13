@@ -13,13 +13,13 @@ import java.io.IOException;
 import java.util.Properties;
 
 @WebServlet(
-        urlPatterns = {"/logIn"}
+        urlPatterns = {"/login"}
 )
 
 /** Begins the authentication process using AWS Cognito
  *
  */
-public class LogIn extends HttpServlet implements PropertiesLoader {
+public class Login extends HttpServlet implements PropertiesLoader {
     Properties properties;
     private final Logger logger = LogManager.getLogger(this.getClass());
     public static String CLIENT_ID;
@@ -49,11 +49,10 @@ public class LogIn extends HttpServlet implements PropertiesLoader {
      * Route to the aws-hosted cognito login page.
      * @param req servlet request
      * @param resp servlet response
-     * @throws ServletException
-     * @throws IOException
+     * @throws IOException io exception
      */
     @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException {
         // TODO if properties weren't loaded properly, route to an error page
         String url = LOGIN_URL + "?response_type=code&client_id=" + CLIENT_ID + "&redirect_uri=" + REDIRECT_URL;
         resp.sendRedirect(url);

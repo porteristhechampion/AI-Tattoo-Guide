@@ -5,7 +5,7 @@
         <a href="index.jsp" class="text-decoration-none">HOME</a>
         <c:choose>
             <c:when test="${not empty username}">
-                <a href="logOut" class="text-decoration-none">Log out</a>
+                <a href="logout" class="text-decoration-none">Log out</a>
 
                 <c:if test="${sessionScope.isAdmin == true}">
                     <a href="users" class="text-decoration-none">ADMIN</a>
