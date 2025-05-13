@@ -26,6 +26,9 @@ public class User extends BaseEntity {
     @Column (name = "username", nullable = false)
     private String username;
 
+    @Column (name = "is_admin", nullable = false, columnDefinition = "BOOLEAN DEFAULT FALSE")
+    private boolean isAdmin;
+
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
     private List<Suggestion> suggestions = new ArrayList<>();
 
@@ -73,6 +76,18 @@ public class User extends BaseEntity {
     public void setUsername(String username) {
         this.username = username;
     }
+
+    /**
+     * Gets the current authorization of
+     * the user.
+     * @return isAdmin
+     */
+    public boolean isAdmin() { return isAdmin; }
+    /**
+     * Sets the admin authorization.
+     * @param isAdmin admin authorization
+     */
+    public void setAdmin(boolean isAdmin) { this.isAdmin = isAdmin; }
 
     /**
      * Gets all suggestions for a given user.

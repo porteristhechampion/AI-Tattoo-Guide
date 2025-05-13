@@ -105,6 +105,9 @@ public class Auth extends HttpServlet implements PropertiesLoader {
                 HttpSession session = req.getSession();
                 session.setAttribute("username", email);
 
+                User user = userDAO.getByPropertyLike("username", email).get(0);
+                session.setAttribute("isAdmin", user.isAdmin());
+
                 req.setAttribute("email", email);
             } catch (IOException e) {
                 logger.error("Error getting or validating the token: " + e.getMessage(), e);
