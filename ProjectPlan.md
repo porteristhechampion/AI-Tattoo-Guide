@@ -52,7 +52,7 @@
 - [ ] Implement **user authentication** using cognito
     - [X] User **registration, login, logout**
     - [ ] Role-based access (user, admin)
-- [ ] Create **JSP pages for login, registration, dashboard**
+- [X] Create **JSP pages for login, registration, dashboard**
 - [X] Weekly reflection
 
 ---

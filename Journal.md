@@ -107,7 +107,16 @@ feature finished, and then I will be doing the open-source challenge on Sunday, 
 which will probably take place tomorrow. I'm feeling very confident with where I am at right now since I have roughly a week and a half to
 two weeks to get the AWS and cognito stuff setup, so I'm feeling great. I also added the admin page where admins can view a list of the 
 users and delete a user if needed which will in turn delete all the suggestions associated with that user. I think a nice feature to have
-would be to search for a specific user using a username but I don't think I will get to that in this class and for now ctrl + f will have
-to do.
+would be to search for a specific user using a username on the admin page, but I don't think I will get to that in this class and for now
+ctrl + f will have to do.
 
 Week 14 - 5/5/25
+Time Spent: 5 hours
+This week I deployed my application to AWS. There isn't really a ton to talk about since it wasn't difficult it just took awhile. I had a
+good amount of experience doing something similar since we did it in the team project, but I am glad I got it working since it was one of 
+the things I was most nervous about with this project. I have spent a little bit of time trying to get cognito going and I don't currently
+have it properly implemented into the exercise. In good news I am finished with my other classwork so the next full week will go into the
+indie project.
+
+Week 15 - 5/12/25
+Time Spent:
