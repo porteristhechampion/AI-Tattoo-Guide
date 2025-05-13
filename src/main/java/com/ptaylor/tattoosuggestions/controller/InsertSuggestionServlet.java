@@ -68,11 +68,16 @@ public class InsertSuggestionServlet extends HttpServlet {
         Suggestion newSuggestion = new Suggestion(suggestionText, user, style, LocalDateTime.now());
         int insertedId = suggestionDAO.insert(newSuggestion);
 
+        List<User> updatedUsers = userDAO.getByPropertyLike("username", username);
+        User updatedUser = updatedUsers.get(0);
+
+        request.getSession().setAttribute("user", updatedUser);
+
         logger.info(suggestionText);
         logger.info(styleId);
         logger.info(insertedId);
 
-        response.sendRedirect("suggestions");
+        response.sendRedirect("suggestions.jsp");
     }
 
 }

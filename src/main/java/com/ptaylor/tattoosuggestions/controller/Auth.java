@@ -103,13 +103,13 @@ public class Auth extends HttpServlet implements PropertiesLoader {
                     userDAO.insert(newUser);
                 }
 
+                User user = userDAO.getByPropertyLike("username", email).get(0);
+
                 HttpSession session = req.getSession();
+                session.setAttribute("user", user);
+                session.setAttribute("isAdmin", user.isAdmin());
                 session.setAttribute("username", email);
 
-                User user = userDAO.getByPropertyLike("username", email).get(0);
-                session.setAttribute("isAdmin", user.isAdmin());
-
-                req.setAttribute("email", email);
             } catch (IOException e) {
                 logger.error("Error getting or validating the token: " + e.getMessage(), e);
                 RequestDispatcher dispatcher = req.getRequestDispatcher("error.jsp");

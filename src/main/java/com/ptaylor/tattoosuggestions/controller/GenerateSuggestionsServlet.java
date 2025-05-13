@@ -58,15 +58,9 @@ public class GenerateSuggestionsServlet extends HttpServlet {
         String prompt = request.getParameter("prompt");
         String aiResponse = openAI.getAIResponse(prompt);
 
-        String username = (String) request.getSession().getAttribute("username");
-        List<User> users = userDAO.getByPropertyLike("username", username);
-        User user = users.get(0);
-
-        List<Suggestion> suggestions = user.getSuggestions();
         List<Style> styles = styleDAO.getAll();
 
         request.setAttribute("generatedResponse", aiResponse);
-        request.setAttribute("suggestions", suggestions);
         request.setAttribute("styles", styles);
 
         RequestDispatcher rd = request.getRequestDispatcher("suggestions.jsp");
