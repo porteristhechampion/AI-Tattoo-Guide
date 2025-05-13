@@ -1,16 +1,17 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<!DOCTYPE html>
-<header>
-    <nav class="d-flex flex-column flex-sm-row text-center justify-content-evenly py-3 fs-5">
-        <a href="index.jsp" class="text-decoration-none">HOME</a>
+<header class="mb-4">
+    <nav class="d-flex justify-content-center py-3 border-bottom bg-white">
+        <a href="index.jsp">Home</a>
         <c:choose>
             <c:when test="${not empty username}">
-                <a href="logout" class="text-decoration-none">Log out</a>
-
+                <a href="logout">Log out</a>
                 <c:if test="${sessionScope.isAdmin == true}">
-                    <a href="users" class="text-decoration-none">ADMIN</a>
+                    <a href="users">Admin</a>
                 </c:if>
             </c:when>
+            <c:otherwise>
+                <a href="login">Login</a>
+            </c:otherwise>
         </c:choose>
     </nav>
 </header>

@@ -22,7 +22,8 @@ public class Suggestion extends BaseEntity {
     @GenericGenerator(name = "native", strategy = "native")
     private int id;
 
-    @Column (name = "suggestion", nullable = false)
+    @Lob
+    @Column (name = "suggestion", nullable = false, columnDefinition = "TEXT")
     private String suggestion;
 
     @ManyToOne(fetch = FetchType.EAGER)
