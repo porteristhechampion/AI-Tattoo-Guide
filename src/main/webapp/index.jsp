@@ -9,11 +9,11 @@
                 <h2>Welcome to the AI tattoo assistant!</h2>
                 <h5>This is just the beginning!</h5>
                 <c:choose>
-                    <c:when test="${empty email}">
+                    <c:when test="${empty username}">
                         <a href="logIn" class="btn btn-primary">Log in</a>
                     </c:when>
                     <c:otherwise>
-                        <p>Welcome ${email}</p>
+                        <p>Welcome ${username}</p>
                         <a href="suggestions" class="btn btn-primary">View Suggestions</a>
                     </c:otherwise>
                 </c:choose>

@@ -13,6 +13,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.time.LocalDateTime;
+import java.util.List;
 
 @WebServlet(
         urlPatterns = {"/insertSuggestion"}
@@ -59,7 +60,9 @@ public class InsertSuggestionServlet extends HttpServlet {
         String suggestionText = request.getParameter("suggestion");
         int styleId = Integer.parseInt(request.getParameter("style"));
 
-        User user = userDAO.getById(3);
+        String username = (String) request.getSession().getAttribute("username");
+        List<User> users = userDAO.getByPropertyLike("username", username);
+        User user = users.get(0);
         Style style = styleDAO.getById(styleId);
 
         Suggestion newSuggestion = new Suggestion(suggestionText, user, style, LocalDateTime.now());

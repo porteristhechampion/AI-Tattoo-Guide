@@ -46,7 +46,6 @@ public class SuggestionsServlet extends HttpServlet {
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         String username = (String) request.getSession().getAttribute("username");
-
         List<User> users = userDAO.getByPropertyLike("username", username);
         User user = users.get(0);
         List<Suggestion> suggestions = user.getSuggestions();
