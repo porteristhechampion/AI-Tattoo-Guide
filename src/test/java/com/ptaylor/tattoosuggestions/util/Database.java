@@ -1,6 +1,5 @@
 package com.ptaylor.tattoosuggestions.util;
 
-import com.ptaylor.tattoosuggestions.persistence.PropertiesLoader;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 

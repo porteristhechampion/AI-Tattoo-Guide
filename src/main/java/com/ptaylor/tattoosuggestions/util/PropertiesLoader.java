@@ -1,4 +1,4 @@
-package com.ptaylor.tattoosuggestions.persistence;
+package com.ptaylor.tattoosuggestions.util;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;

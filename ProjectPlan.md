@@ -43,7 +43,6 @@
 - [X] Implement **suggestion editing functionality**
 - [X] Allow users to **delete their saved suggestions**
 - [X] Implement **style selection (dropdown of styles)**
-- [ ] Allow users to ***add custom styles***
 - [X] Weekly reflection
 
 ---
@@ -51,7 +50,7 @@
 ## Week 7: Backend Implementation - Authentication & User Management
 - [X] Deploy to AWS
 - [ ] Implement **user authentication** using cognito
-    - [ ] User **registration, login, logout**
+    - [X] User **registration, login, logout**
     - [ ] Role-based access (user, admin)
 - [ ] Create **JSP pages for login, registration, dashboard**
 - [X] Weekly reflection
@@ -81,8 +80,8 @@
 ---
 
 ## Week 9: Checkpoint 3 – Deployed App & Authentication Complete
-- [ ] **Verify Checkpoint 3 requirements:**
-    - [ ] **Authentication implemented** (user/admin)
+- [X] **Verify Checkpoint 3 requirements:**
+    - [X] **Authentication implemented** (user/admin)
     - [X] **At least one JSP page displaying database data**
     - [X] **AWS deployment successful & accessible**
 - [X] Add **AWS link** to indie project list
@@ -91,7 +90,7 @@
 ---
 
 ## Week 10: User Experience & Feedback Collection
-- [ ] Conduct **user testing** (ask people to test app, note issues)
+- [X] Conduct **user testing** (ask people to test app, note issues)
 - [ ] Improve **UI based on user feedback**
 - [X] Optimize **database queries** for performance
 - [X] Weekly reflection
@@ -136,3 +135,6 @@
 - [ ] Ensure **code is production-ready**
 - [ ] **Submit project**
 - [ ] Weekly journal entry  
+
+## Version 2 Features
+- [ ] Allow users to ***add custom styles***

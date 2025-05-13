@@ -89,4 +89,15 @@ public class UserDAOTest {
         assertEquals(0, suggestions.size());
         assertNotNull(user);
     }
+
+    /**
+     * Tests that getByPropertyLike method returns null when there is no matching
+     * username in the database.
+     */
+    @Test
+    void checkExists() {
+        String email = "example@gmail.com";
+        List<User> userRetrieved = userDAO.getByPropertyLike("username", email);
+        assertNull(userRetrieved);
+    }
 }
