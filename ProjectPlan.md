@@ -111,7 +111,6 @@
 ## Week 14: Pre-Final Review & Final Testing
 - [X] Conduct **full code review**
 - [X] Write **final unit tests**
-- [ ] Prepare **final documentation**
 - [X] Weekly reflection
 
 ---
@@ -119,18 +118,18 @@
 ## Week 15: Final Presentation & Documentation
 - [X] Implement **feedback from review**
 - [X] **Prepare final presentation**
-- [ ] Create **demo video** and add link to `README.md`
-- [ ] Finalize **all documentation**
+- [X] Create **demo video** and add link to `README.md`
+- [X] Finalize **all documentation**
 - [X] Perform **code quality check**
-- [ ] Weekly journal entry
+- [X] Weekly journal entry
 
 ---
 
 ## Week 16: Final Touches & Submission
 - [X] **Final bug fixes**
 - [X] Ensure **code is production-ready**
-- [ ] **Submit project**
-- [ ] Weekly journal entry  
+- [X] **Submit project**
+- [X] Weekly journal entry  
 
 ## Version 2 Features
 - [ ] Allow users to ***add custom styles***
@@ -139,3 +138,4 @@
 - [ ] Implement DALL-E api for ***image generation***
 - [ ] Perform **security audit** (check for vulnerabilities)
 - [ ] Implement **password reset functionality**
+- [ ] Prepare **final documentation**
