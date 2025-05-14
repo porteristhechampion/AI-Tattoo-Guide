@@ -2,6 +2,7 @@ package com.ptaylor.tattoosuggestions.controller;
 
 import com.ptaylor.tattoosuggestions.entity.Style;
 import com.ptaylor.tattoosuggestions.entity.Suggestion;
+import com.ptaylor.tattoosuggestions.entity.User;
 import com.ptaylor.tattoosuggestions.persistence.TattooDAO;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -11,6 +12,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.List;
 
 @WebServlet (
         urlPatterns = "/updateSuggestion"
@@ -28,6 +30,7 @@ public class UpdateSuggestionsServlet extends HttpServlet {
     private static final Logger logger = LogManager.getLogger(EditSuggestionsServlet.class);
 
     TattooDAO<Suggestion> suggestionDAO;
+    TattooDAO<User> userDAO;
     TattooDAO<Style> styleDAO;
 
     /**
@@ -37,6 +40,7 @@ public class UpdateSuggestionsServlet extends HttpServlet {
     @Override
     public void init() {
         suggestionDAO = new TattooDAO<>(Suggestion.class);
+        userDAO = new TattooDAO<>(User.class);
         styleDAO = new TattooDAO<>(Style.class);
     }
 
@@ -64,9 +68,16 @@ public class UpdateSuggestionsServlet extends HttpServlet {
 
         suggestionDAO.update(suggestion);
 
+        String username = (String) request.getSession().getAttribute("username");
+
+        List<User> updatedUsers = userDAO.getByPropertyLike("username", username);
+        User updatedUser = updatedUsers.get(0);
+
+        request.getSession().setAttribute("user", updatedUser);
+
         logger.debug(suggestion);
 
-        response.sendRedirect("suggestions");
+        response.sendRedirect("suggestions.jsp");
     }
 
 }

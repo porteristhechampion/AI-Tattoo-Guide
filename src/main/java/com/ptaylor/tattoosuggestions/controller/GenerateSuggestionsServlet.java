@@ -1,8 +1,6 @@
 package com.ptaylor.tattoosuggestions.controller;
 
 import com.ptaylor.tattoosuggestions.entity.Style;
-import com.ptaylor.tattoosuggestions.entity.Suggestion;
-import com.ptaylor.tattoosuggestions.entity.User;
 import com.ptaylor.tattoosuggestions.persistence.OpenAI;
 import com.ptaylor.tattoosuggestions.persistence.TattooDAO;
 
@@ -14,6 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.List;
+import java.util.Properties;
 
 @WebServlet(
         urlPatterns = {"/generateSuggestion"}
@@ -27,7 +26,6 @@ import java.util.List;
  * @author ptaylor
  */
 public class GenerateSuggestionsServlet extends HttpServlet {
-    private TattooDAO<User> userDAO;
     private TattooDAO<Style> styleDAO;
 
     /**
@@ -35,10 +33,7 @@ public class GenerateSuggestionsServlet extends HttpServlet {
      * once the servlet is first loaded.
      */
     @Override
-    public void init() {
-        userDAO = new TattooDAO<>(User.class);
-        styleDAO = new TattooDAO<>(Style.class);
-    }
+    public void init() { styleDAO = new TattooDAO<>(Style.class); }
 
     /**
      * This method handles the POST request to generate a suggestion, retrieves the prompt from the request,
@@ -53,20 +48,16 @@ public class GenerateSuggestionsServlet extends HttpServlet {
     @Override
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-        OpenAI openAI = new OpenAI();
+        Properties apiProperties = (Properties) getServletContext().getAttribute("apiProperties");
+
+        OpenAI openAI = new OpenAI(apiProperties);
 
         String prompt = request.getParameter("prompt");
         String aiResponse = openAI.getAIResponse(prompt);
 
-        String username = (String) request.getSession().getAttribute("username");
-        List<User> users = userDAO.getByPropertyLike("username", username);
-        User user = users.get(0);
-
-        List<Suggestion> suggestions = user.getSuggestions();
         List<Style> styles = styleDAO.getAll();
 
         request.setAttribute("generatedResponse", aiResponse);
-        request.setAttribute("suggestions", suggestions);
         request.setAttribute("styles", styles);
 
         RequestDispatcher rd = request.getRequestDispatcher("suggestions.jsp");

@@ -13,12 +13,12 @@
         </p>
 
         <c:choose>
-            <c:when test="${empty username}">
+            <c:when test="${empty user}">
                 <a href="login" class="btn btn-primary btn-lg">Log in</a>
             </c:when>
             <c:otherwise>
-                <p class="mb-3">Welcome, <strong>${username}</strong>!</p>
-                <a href="suggestions" class="btn btn-success btn-lg">View Suggestions</a>
+                <p class="mb-3">Welcome, <strong>${user.username}</strong>!</p>
+                <a href="suggestions.jsp" class="btn btn-success btn-lg">View Suggestions</a>
             </c:otherwise>
         </c:choose>
     </div>

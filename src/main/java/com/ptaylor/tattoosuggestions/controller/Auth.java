@@ -9,7 +9,6 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.ptaylor.tattoosuggestions.auth.*;
 import com.ptaylor.tattoosuggestions.entity.User;
 import com.ptaylor.tattoosuggestions.persistence.TattooDAO;
-import com.ptaylor.tattoosuggestions.util.PropertiesLoader;
 import org.apache.commons.io.FileUtils;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -47,12 +46,12 @@ import java.util.stream.Collectors;
 @WebServlet(
         urlPatterns = {"/auth"}
 )
-// TODO if something goes wrong it this process, route to an error page. Currently, errors are only caught and logged.
+
 /**
  * Inspired by: https://stackoverflow.com/questions/52144721/how-to-get-access-token-using-client-credentials-using-java-code
  */
 
-public class Auth extends HttpServlet implements PropertiesLoader {
+public class Auth extends HttpServlet {
     Properties properties;
     String CLIENT_ID;
     String CLIENT_SECRET;
@@ -71,7 +70,29 @@ public class Auth extends HttpServlet implements PropertiesLoader {
     public void init() throws ServletException {
         super.init();
         userDAO = new TattooDAO<>(User.class);
-        loadProperties();
+
+        properties = (Properties) getServletContext().getAttribute("cognitoProperties");
+        CLIENT_ID = properties.getProperty("client.id");
+        logger.info(CLIENT_ID);
+
+        CLIENT_SECRET = properties.getProperty("client.secret");
+        logger.info(CLIENT_SECRET);
+
+        OAUTH_URL = properties.getProperty("oauthURL");
+        logger.info(OAUTH_URL);
+
+        LOGIN_URL = properties.getProperty("loginURL");
+        logger.info(LOGIN_URL);
+
+        REDIRECT_URL = properties.getProperty("redirectURL");
+        logger.info(REDIRECT_URL);
+
+        REGION = properties.getProperty("region");
+        logger.info(REGION);
+
+        POOL_ID = properties.getProperty("poolId");
+        logger.info(POOL_ID);
+
         loadKey();
     }
 
@@ -79,8 +100,8 @@ public class Auth extends HttpServlet implements PropertiesLoader {
      * Gets the auth code from the request and exchanges it for a token containing user info.
      * @param req servlet request
      * @param resp servlet response
-     * @throws ServletException
-     * @throws IOException
+     * @throws ServletException servlet exception
+     * @throws IOException io exception
      */
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -88,7 +109,8 @@ public class Auth extends HttpServlet implements PropertiesLoader {
         String email = null;
 
         if (authCode == null) {
-            //TODO forward to an error page or back to the login
+            RequestDispatcher dispatcher = req.getRequestDispatcher("error.jsp");
+            dispatcher.forward(req, resp);
         } else {
             HttpRequest authRequest = buildAuthRequest(authCode);
             try {
@@ -102,19 +124,21 @@ public class Auth extends HttpServlet implements PropertiesLoader {
                     userDAO.insert(newUser);
                 }
 
+                User user = userDAO.getByPropertyLike("username", email).get(0);
+
                 HttpSession session = req.getSession();
+                session.setAttribute("user", user);
+                session.setAttribute("isAdmin", user.isAdmin());
                 session.setAttribute("username", email);
 
-                User user = userDAO.getByPropertyLike("username", email).get(0);
-                session.setAttribute("isAdmin", user.isAdmin());
-
-                req.setAttribute("email", email);
             } catch (IOException e) {
                 logger.error("Error getting or validating the token: " + e.getMessage(), e);
-                //TODO forward to an error page
+                RequestDispatcher dispatcher = req.getRequestDispatcher("error.jsp");
+                dispatcher.forward(req, resp);
             } catch (InterruptedException e) {
                 logger.error("Error getting token from Cognito oauth url " + e.getMessage(), e);
-                //TODO forward to an error page
+                RequestDispatcher dispatcher = req.getRequestDispatcher("error.jsp");
+                dispatcher.forward(req, resp);
             }
         }
         RequestDispatcher dispatcher = req.getRequestDispatcher("index.jsp");
@@ -126,8 +150,8 @@ public class Auth extends HttpServlet implements PropertiesLoader {
      * Sends the request for a token to Cognito and maps the response
      * @param authRequest the request to the oauth2/token url in cognito
      * @return response from the oauth2/token endpoint which should include id token, access token and refresh token
-     * @throws IOException
-     * @throws InterruptedException
+     * @throws IOException io exception
+     * @throws InterruptedException interrupted exception
      */
     private TokenResponse getToken(HttpRequest authRequest) throws IOException, InterruptedException {
         HttpClient client = HttpClient.newHttpClient();
@@ -150,9 +174,9 @@ public class Auth extends HttpServlet implements PropertiesLoader {
     /**
      * Get values out of the header to verify the token is legit. If it is legit, get the claims from it, such
      * as username.
-     * @param tokenResponse
-     * @return
-     * @throws IOException
+     * @param tokenResponse token reponse
+     * @return email/username
+     * @throws IOException io exception
      */
     private String validate(TokenResponse tokenResponse) throws IOException {
         ObjectMapper mapper = new ObjectMapper();
@@ -162,20 +186,16 @@ public class Auth extends HttpServlet implements PropertiesLoader {
         String keyId = tokenHeader.getKid();
         String alg = tokenHeader.getAlg();
 
-        // todo pick proper key from the two - it just so happens that the first one works for my case
-        // Use Key's N and E
         BigInteger modulus = new BigInteger(1, org.apache.commons.codec.binary.Base64.decodeBase64(jwks.getKeys().get(0).getN()));
         BigInteger exponent = new BigInteger(1, org.apache.commons.codec.binary.Base64.decodeBase64(jwks.getKeys().get(0).getE()));
 
-        // TODO the following is "happy path", what if the exceptions are caught?
         // Create a public key
         PublicKey publicKey = null;
         try {
             publicKey = KeyFactory.getInstance("RSA").generatePublic(new RSAPublicKeySpec(modulus, exponent));
-        } catch (InvalidKeySpecException e) {
+        } catch (InvalidKeySpecException | NoSuchAlgorithmException e) {
             logger.error("Invalid Key Error " + e.getMessage(), e);
-        } catch (NoSuchAlgorithmException e) {
-            logger.error("Algorithm Error " + e.getMessage(), e);
+            return null;
         }
 
         // get an algorithm instance
@@ -196,9 +216,6 @@ public class Auth extends HttpServlet implements PropertiesLoader {
         logger.debug("here's the username: " + email);
 
         logger.debug("here are all the available claims: " + jwt.getClaims());
-
-        // TODO decide what you want to do with the info!
-        // for now, I'm just returning username for display back to the browser
 
         return email;
     }
@@ -254,22 +271,6 @@ public class Auth extends HttpServlet implements PropertiesLoader {
         } catch (Exception e) {
             logger.error("Error loading json" + e.getMessage(), e);
         }
-    }
-
-    /**
-     * Read in the cognito props file and get/set the client id, secret, and required urls
-     * for authenticating a user.
-     */
-    // TODO This code appears in a couple classes, consider using a startup servlet similar to adv java project
-    private void loadProperties() {
-        properties = loadProperties("/cognito.properties");
-        CLIENT_ID = properties.getProperty("client.id");
-        CLIENT_SECRET = properties.getProperty("client.secret");
-        OAUTH_URL = properties.getProperty("oauthURL");
-        LOGIN_URL = properties.getProperty("loginURL");
-        REDIRECT_URL = properties.getProperty("redirectURL");
-        REGION = properties.getProperty("region");
-        POOL_ID = properties.getProperty("poolId");
     }
 }
 

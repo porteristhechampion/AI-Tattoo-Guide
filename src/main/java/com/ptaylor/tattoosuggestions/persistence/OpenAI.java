@@ -33,11 +33,21 @@ public class OpenAI implements PropertiesLoader {
      */
     public OpenAI() {
         properties = loadProperties("/api.properties");
+        loadKeys();
+    }
 
+    public OpenAI(Properties properties) {
+        this.properties = properties;
+        loadKeys();
+    }
+
+    public void loadKeys() {
         apiKey = properties.getProperty("OPENAI_API_KEY");
         logger.info("OpenAI API Key: " + apiKey);
+
         apiUrl = properties.getProperty("OPENAI_API_URL");
         logger.info("OpenAI API URL: " + apiUrl);
+
         model = properties.getProperty("OPENAI_MODEL");
         logger.info("OpenAI MODEL: " + model);
     }

@@ -49,9 +49,9 @@
 
 ## Week 7: Backend Implementation - Authentication & User Management
 - [X] Deploy to AWS
-- [ ] Implement **user authentication** using cognito
+- [X] Implement **user authentication** using cognito
     - [X] User **registration, login, logout**
-    - [ ] Role-based access (user, admin)
+    - [X] Role-based access (user, admin)
 - [X] Create **JSP pages for login, registration, dashboard**
 - [X] Weekly reflection
 
@@ -70,11 +70,11 @@
 ---
 
 ## Week 8: Admin Dashboard & Security Enhancements
-- [ ] Implement **admin authentication**
+- [X] Implement **admin authentication**
 - [X] Create **Admin JSP dashboard** to manage users
 - [X] Implement **admin ability to delete users & their associated data**
-- [ ] Add **role-based access** to restrict admin pages
-- [ ] Improve **error handling and form validation**
+- [X] Add **role-based access** to restrict admin pages
+- [X] Improve **error handling and form validation**
 - [X] Weekly reflection
 
 ---
@@ -91,29 +91,25 @@
 
 ## Week 10: User Experience & Feedback Collection
 - [X] Conduct **user testing** (ask people to test app, note issues)
-- [ ] Improve **UI based on user feedback**
+- [X] Improve **UI based on user feedback**
 - [X] Optimize **database queries** for performance
 - [X] Weekly reflection
 
 ---
 
 ## Week 11-12: Advanced Features & Refinements
-- [ ] Implement **API caching** (to prevent excessive API calls)
-- [ ] Optimize **page loading times**
 - [X] Weekly reflection
 
 ---
 
 ## Week 13: Security & Performance Checks
-- [ ] Perform **security audit** (check for vulnerabilities)
-- [ ] Implement **password reset functionality**
-- [ ] Improve **database indexing** for faster queries
+- [X] Improve **database indexing** for faster queries
 - [X] Weekly reflection
 
 ---
 
 ## Week 14: Pre-Final Review & Final Testing
-- [ ] Conduct **full code review**
+- [X] Conduct **full code review**
 - [X] Write **final unit tests**
 - [ ] Prepare **final documentation**
 - [X] Weekly reflection
@@ -122,19 +118,24 @@
 
 ## Week 15: Final Presentation & Documentation
 - [X] Implement **feedback from review**
-- [ ] **Prepare final presentation**
+- [X] **Prepare final presentation**
 - [ ] Create **demo video** and add link to `README.md`
 - [ ] Finalize **all documentation**
-- [ ] Perform **code quality check**
+- [X] Perform **code quality check**
 - [ ] Weekly journal entry
 
 ---
 
 ## Week 16: Final Touches & Submission
-- [ ] **Final bug fixes**
-- [ ] Ensure **code is production-ready**
+- [X] **Final bug fixes**
+- [X] Ensure **code is production-ready**
 - [ ] **Submit project**
 - [ ] Weekly journal entry  
 
 ## Version 2 Features
 - [ ] Allow users to ***add custom styles***
+- [ ] Implement **API caching** (to prevent excessive API calls)
+- [ ] Optimize **page loading times**
+- [ ] Implement DALL-E api for ***image generation***
+- [ ] Perform **security audit** (check for vulnerabilities)
+- [ ] Implement **password reset functionality**

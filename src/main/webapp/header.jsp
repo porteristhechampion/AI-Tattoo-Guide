@@ -3,7 +3,7 @@
     <nav class="d-flex justify-content-center py-3 border-bottom bg-white">
         <a href="index.jsp">Home</a>
         <c:choose>
-            <c:when test="${not empty username}">
+            <c:when test="${not empty user}">
                 <a href="logout">Log out</a>
                 <c:if test="${sessionScope.isAdmin == true}">
                     <a href="users">Admin</a>

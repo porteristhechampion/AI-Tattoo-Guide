@@ -30,8 +30,8 @@
                             </thead>
                             <tbody>
                             <c:choose>
-                                <c:when test="${not empty suggestions}">
-                                    <c:forEach var="suggestion" items="${suggestions}">
+                                <c:when test="${not empty user.suggestions}">
+                                    <c:forEach var="suggestion" items="${user.suggestions}">
                                         <tr>
                                             <td>
                                                     ${suggestion.suggestion}
