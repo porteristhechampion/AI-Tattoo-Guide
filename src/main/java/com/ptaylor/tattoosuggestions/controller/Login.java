@@ -1,6 +1,5 @@
 package com.ptaylor.tattoosuggestions.controller;
 
-import com.ptaylor.tattoosuggestions.util.PropertiesLoader;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -19,7 +18,7 @@ import java.util.Properties;
 /** Begins the authentication process using AWS Cognito
  *
  */
-public class Login extends HttpServlet implements PropertiesLoader {
+public class Login extends HttpServlet {
     Properties properties;
     private final Logger logger = LogManager.getLogger(this.getClass());
     public static String CLIENT_ID;
@@ -29,20 +28,15 @@ public class Login extends HttpServlet implements PropertiesLoader {
     @Override
     public void init() throws ServletException {
         super.init();
-        loadProperties();
-    }
-
-    /**
-     * Read in the cognito props file and get the client id and required urls
-     * for authenticating a user.
-     */
-    // TODO This code appears in a couple classes, consider using a startup servlet similar to adv java project
-    // 4 to do this work a single time and put the properties in the application scope
-    private void loadProperties() {
-        properties = loadProperties("/cognito.properties");
+        properties = (Properties) getServletContext().getAttribute("cognitoProperties");
         CLIENT_ID = properties.getProperty("client.id");
+        logger.info(CLIENT_ID);
+
         LOGIN_URL = properties.getProperty("loginURL");
+        logger.info(LOGIN_URL);
+
         REDIRECT_URL = properties.getProperty("redirectURL");
+        logger.info(REDIRECT_URL);
     }
 
     /**
@@ -53,7 +47,9 @@ public class Login extends HttpServlet implements PropertiesLoader {
      */
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException {
-        // TODO if properties weren't loaded properly, route to an error page
+        if (CLIENT_ID == null || LOGIN_URL == null || REDIRECT_URL == null) {
+            resp.sendRedirect("error.jsp");
+        }
         String url = LOGIN_URL + "?response_type=code&client_id=" + CLIENT_ID + "&redirect_uri=" + REDIRECT_URL;
         resp.sendRedirect(url);
     }

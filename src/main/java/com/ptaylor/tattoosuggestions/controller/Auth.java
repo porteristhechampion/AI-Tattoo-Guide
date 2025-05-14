@@ -9,7 +9,6 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.ptaylor.tattoosuggestions.auth.*;
 import com.ptaylor.tattoosuggestions.entity.User;
 import com.ptaylor.tattoosuggestions.persistence.TattooDAO;
-import com.ptaylor.tattoosuggestions.util.PropertiesLoader;
 import org.apache.commons.io.FileUtils;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -52,7 +51,7 @@ import java.util.stream.Collectors;
  * Inspired by: https://stackoverflow.com/questions/52144721/how-to-get-access-token-using-client-credentials-using-java-code
  */
 
-public class Auth extends HttpServlet implements PropertiesLoader {
+public class Auth extends HttpServlet {
     Properties properties;
     String CLIENT_ID;
     String CLIENT_SECRET;
@@ -71,7 +70,29 @@ public class Auth extends HttpServlet implements PropertiesLoader {
     public void init() throws ServletException {
         super.init();
         userDAO = new TattooDAO<>(User.class);
-        loadProperties();
+
+        properties = (Properties) getServletContext().getAttribute("cognitoProperties");
+        CLIENT_ID = properties.getProperty("client.id");
+        logger.info(CLIENT_ID);
+
+        CLIENT_SECRET = properties.getProperty("client.secret");
+        logger.info(CLIENT_SECRET);
+
+        OAUTH_URL = properties.getProperty("oauthURL");
+        logger.info(OAUTH_URL);
+
+        LOGIN_URL = properties.getProperty("loginURL");
+        logger.info(LOGIN_URL);
+
+        REDIRECT_URL = properties.getProperty("redirectURL");
+        logger.info(REDIRECT_URL);
+
+        REGION = properties.getProperty("region");
+        logger.info(REGION);
+
+        POOL_ID = properties.getProperty("poolId");
+        logger.info(POOL_ID);
+
         loadKey();
     }
 
@@ -250,22 +271,6 @@ public class Auth extends HttpServlet implements PropertiesLoader {
         } catch (Exception e) {
             logger.error("Error loading json" + e.getMessage(), e);
         }
-    }
-
-    /**
-     * Read in the cognito props file and get/set the client id, secret, and required urls
-     * for authenticating a user.
-     */
-    // TODO This code appears in a couple classes, consider using a startup servlet similar to adv java project
-    private void loadProperties() {
-        properties = loadProperties("/cognito.properties");
-        CLIENT_ID = properties.getProperty("client.id");
-        CLIENT_SECRET = properties.getProperty("client.secret");
-        OAUTH_URL = properties.getProperty("oauthURL");
-        LOGIN_URL = properties.getProperty("loginURL");
-        REDIRECT_URL = properties.getProperty("redirectURL");
-        REGION = properties.getProperty("region");
-        POOL_ID = properties.getProperty("poolId");
     }
 }
 
