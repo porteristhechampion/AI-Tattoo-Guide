@@ -119,4 +119,9 @@ have it properly implemented into the exercise. In good news I am finished with 
 indie project.
 
 Week 15 - 5/12/25
-Time Spent:
+Time Spent: 8 hours
+This week I fully implemented cognito and admin authentication functionalities. I then went back and made some corrections and also updated
+the UI to make it more appealing using bootstrap. I am very happy to be finished and I had quite a bit of fun working on this project. Prior
+to this class I hated Web Development, but I would say that the front end work on this project was by far the most fun and rewarding. After
+12 weeks of just working on the backend it was really rewarding to see actual displayed data and get to play around with my application. I
+am pleased with how the application turned out and eventually would like to create a V2 that is able to generate images!
