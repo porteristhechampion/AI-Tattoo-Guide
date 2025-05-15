@@ -54,3 +54,8 @@ story and meaning behind a simple tattoo.
   - Ability to delete previously saved suggestions
   - Admin view of all registered users and their username
   - Admin ability to delete a given registered user
+
+### Presentation
+
+  - Application demo https://youtu.be/i_9R6jITfIQ
+  - Code review https://youtu.be/JoPLhZ8xx-A
